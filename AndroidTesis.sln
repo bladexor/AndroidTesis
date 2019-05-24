@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{F7D275E3-B265-48DE-B80A-AD25816DA7D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{FE3E0B9C-7E04-4455-B2D3-211D82423FC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farma.Web", "Farma.Web\Farma.Web.csproj", "{775CCBF5-800A-401E-9A7E-052AFF897E22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farma.Common", "Farma.Common\Farma.Common.csproj", "{D1691DF1-DBD5-4D56-AECB-128AB3B30CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farma.UIForms.Android", "Farma.UIForms\Farma.UIForms.Android\Farma.UIForms.Android.csproj", "{9AA45995-C80F-4059-973B-74A948F17EDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farma.UIForms", "Farma.UIForms\Farma.UIForms\Farma.UIForms.csproj", "{D6C53AD5-D259-497F-9254-4A72E6A2CB9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classic", "Classic", "{575CB965-E870-4337-9F41-4C16BEF7F054}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{3C2A9F10-74FB-4E73-9097-4071B8CB01CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{775CCBF5-800A-401E-9A7E-052AFF897E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775CCBF5-800A-401E-9A7E-052AFF897E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775CCBF5-800A-401E-9A7E-052AFF897E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775CCBF5-800A-401E-9A7E-052AFF897E22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1691DF1-DBD5-4D56-AECB-128AB3B30CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1691DF1-DBD5-4D56-AECB-128AB3B30CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1691DF1-DBD5-4D56-AECB-128AB3B30CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1691DF1-DBD5-4D56-AECB-128AB3B30CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA45995-C80F-4059-973B-74A948F17EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA45995-C80F-4059-973B-74A948F17EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA45995-C80F-4059-973B-74A948F17EDE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9AA45995-C80F-4059-973B-74A948F17EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA45995-C80F-4059-973B-74A948F17EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA45995-C80F-4059-973B-74A948F17EDE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D6C53AD5-D259-497F-9254-4A72E6A2CB9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6C53AD5-D259-497F-9254-4A72E6A2CB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6C53AD5-D259-497F-9254-4A72E6A2CB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6C53AD5-D259-497F-9254-4A72E6A2CB9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{775CCBF5-800A-401E-9A7E-052AFF897E22} = {F7D275E3-B265-48DE-B80A-AD25816DA7D2}
+		{9AA45995-C80F-4059-973B-74A948F17EDE} = {3C2A9F10-74FB-4E73-9097-4071B8CB01CF}
+		{D6C53AD5-D259-497F-9254-4A72E6A2CB9B} = {3C2A9F10-74FB-4E73-9097-4071B8CB01CF}
+		{575CB965-E870-4337-9F41-4C16BEF7F054} = {FE3E0B9C-7E04-4455-B2D3-211D82423FC8}
+		{3C2A9F10-74FB-4E73-9097-4071B8CB01CF} = {FE3E0B9C-7E04-4455-B2D3-211D82423FC8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A4C7DAD-2D76-4D25-A00B-4D3E08129C6A}
+	EndGlobalSection
+EndGlobal
