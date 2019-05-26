@@ -33,11 +33,14 @@ namespace Farma.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //Servicio de Conexion a SQL Server
-            services.AddDbContext<DataContext>(cfg =>
-            {
-                cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
-            });
+                //Servicio de Conexion a SQL Server
+                services.AddDbContext<DataContext>(cfg =>
+                {
+                    cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
+                });
+
+                //SERVICIO DEL Seeder de BD
+                services.AddTransient<SeedDb>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
