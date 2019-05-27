@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Farma.Web.Data;
+using Farma.Web.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -41,6 +42,11 @@ namespace Farma.Web
 
                 //SERVICIO DEL Seeder de BD
                 services.AddTransient<SeedDb>();
+
+            //INYECCION DEL REPOSITORIO INTERMEDIO PARA CONEXION A BD
+            //IMPORTANTE PARA CREAR PRUEBAS UNITARIAS CON DATOS FALSOS SIN BD
+                services.AddScoped<IStateRepository, StateRepository>();
+                //services.AddScoped<ICountryRepository, CountryRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
