@@ -47,7 +47,7 @@ namespace Farma.Web.Data.Repositories
 
         public async Task<T> CreateAsync(T entity)
         {
-            await this.context.Set<T>().AddAsync(entity);
+            this.context.Set<T>().Add(entity);
             await SaveAllAsync();
             return entity;
         }

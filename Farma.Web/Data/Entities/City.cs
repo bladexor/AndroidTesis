@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace Farma.Web.Data.Entities
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class City : IEntity
     {
@@ -15,5 +16,12 @@ namespace Farma.Web.Data.Entities
         [Display(Name = "City")]
         [MaxLength(50, ErrorMessage = "The field {0} only can contain {1} characters length.")]
         public string Name { get; set; }
+
+
+        //Clave Externa y Relacion Con la Entidad State
+        public int StateId { get; set; }
+
+        [ForeignKey(nameof(StateId))]
+        public State State { get; set; }
     }
 }

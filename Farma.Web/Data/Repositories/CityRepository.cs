@@ -10,6 +10,7 @@ namespace Farma.Web.Data.Repositories
     {
         public CityRepository(DataContext context) : base(context)
         {
+                       
         }
     }
 }

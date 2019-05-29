@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>States</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -15,21 +15,87 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberCities)
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberCities)
+                </td>
+                <td id="@item.Id">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <button data-id="@item.Id" 
+                            data-name="@item.Name"
+                            data-ncities="@item.NumberCities"
+                            class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<!-- Delete Dialog -->
+<div id="deleteDialog" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to delete the State?</p>
+                
+                <strong id="state_name"></strong>
+                <p>with: <strong id="num_cities"></strong></p>
+                               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Delete item
+            var item_to_delete;
+            var state_name;
+            var num_cities;
+
+            $('.deleteItem').click((e) => {
+                item_to_delete = e.currentTarget.dataset.id;
+                state_name = e.currentTarget.dataset.name;
+                num_cities = e.currentTarget.dataset.ncities;
+
+                $('#state_name').text(state_name);
+
+                if (num_cities == 1)
+                    $('#num_cities').text(num_cities + ' City');
+                else
+                    $('#num_cities').text(num_cities + ' Cities');
+            });
+
+            $("#btnYesDelete").click(function () {
+                window.location.href = '/States/Delete/' + item_to_delete;
+            });
+
+
+
+        });
+    </script>
+}

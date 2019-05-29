@@ -46,7 +46,8 @@ namespace Farma.Web
             //INYECCION DEL REPOSITORIO INTERMEDIO PARA CONEXION A BD
             //IMPORTANTE PARA CREAR PRUEBAS UNITARIAS CON DATOS FALSOS SIN BD
                 services.AddScoped<IStateRepository, StateRepository>();
-                //services.AddScoped<ICountryRepository, CountryRepository>();
+                services.AddScoped<ICityRepository, CityRepository>();
+            //services.AddScoped<ICountryRepository, CountryRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

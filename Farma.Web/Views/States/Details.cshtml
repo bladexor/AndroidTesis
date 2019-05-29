@@ -18,7 +18,96 @@
         </dd>
     </dl>
 </div>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="AddCity" asp-route-id="@Model.Id" class="btn btn-info">Add City</a>
+    <a asp-action="Index" class="btn btn-success">Back to List</a>
 </div>
+
+<h4>Cities</h4>
+@if (Model.Cities == null || Model.Cities.Count == 0)
+{
+    <h5>No cities added yet</h5>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cities.FirstOrDefault().Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Cities.OrderBy(c => c.Name))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td id="@item.Id">
+                        <a asp-action="EditCity" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>    
+                        <button data-id="@item.Id"
+                                data-name="@item.Name"
+                                class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!-- Delete Dialog -->
+<div id="deleteDialog" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to delete the City?</p>
+
+                <strong id="city_name"></strong>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Delete item
+            var item_to_delete;
+            var city_name;
+     
+            $('.deleteItem').click((e) => {
+                item_to_delete = e.currentTarget.dataset.id;
+                city_name = e.currentTarget.dataset.name;
+                
+                $('#city_name').text(city_name);
+
+            });
+
+            $("#btnYesDelete").click(function () {
+                window.location.href = '/States/DeleteCity/' + item_to_delete;
+            });
+
+
+
+        });
+    </script>
+}
