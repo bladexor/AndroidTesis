@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Farma.Web.Data;
 using Farma.Web.Data.Entities;
 using Farma.Web.Data.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Farma.Web.Controllers
 {
+    [Authorize]
     public class StatesController : Controller
     {
         private readonly IStateRepository stateRepository;

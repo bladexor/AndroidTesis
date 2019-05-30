@@ -2,9 +2,10 @@
 namespace Farma.Web.Data
 {
     using Farma.Web.Data.Entities;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<User>
     {
         public DbSet<State> States { get; set; }
 
