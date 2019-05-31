@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Farma.Web.Controllers
 {
-    [Authorize]
+ 
     public class StatesController : Controller
     {
         private readonly IStateRepository stateRepository;
@@ -49,6 +49,7 @@ namespace Farma.Web.Controllers
         }
 
         // GET: States/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -68,6 +69,7 @@ namespace Farma.Web.Controllers
         }
 
         // GET: States/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -116,6 +118,7 @@ namespace Farma.Web.Controllers
         }
 
         // GET: States/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

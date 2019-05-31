@@ -30,6 +30,9 @@ namespace Farma.Web.Data
         {
             await this.context.Database.EnsureCreatedAsync();
 
+            await this.userHelper.CheckRoleAsync("Admin");
+            await this.userHelper.CheckRoleAsync("Customer");
+
             var user = await this.userHelper.GetUserByEmailAsync("bladi135@gmail.com");
             if (user == null)
             {
@@ -48,9 +51,18 @@ namespace Farma.Web.Data
                 {
                     throw new InvalidOperationException("Could not create the user in seeder");
                 }
+
+                await this.userHelper.AddUserToRoleAsync(user, "Admin");
             }
 
-                if (!this.context.States.Any())
+            var isInRole = await this.userHelper.IsUserInRoleAsync(user, "Admin");
+            if (!isInRole)
+            {
+                await this.userHelper.AddUserToRoleAsync(user, "Admin");
+            }
+
+
+            if (!this.context.States.Any())
             {
                 //Amazonas State and Cities
                 var citiesAma = new List<City>();
