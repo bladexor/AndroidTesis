@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Farma.Web.Data;
 using Farma.Web.Data.Entities;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Farma.Web
 {
@@ -43,8 +45,21 @@ namespace Farma.Web
             })
               .AddEntityFrameworkStores<DataContext>();
 
-                //Servicio de Conexion a SQL Server
-                services.AddDbContext<DataContext>(cfg =>
+            //Para la Generación y Autenticacion con Tokens de seguridad para el API
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = this.Configuration["Tokens:Issuer"],
+                        ValidAudience = this.Configuration["Tokens:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.Configuration["Tokens:Key"]))
+                    };
+                });
+
+            //Servicio de Conexion a SQL Server
+            services.AddDbContext<DataContext>(cfg =>
                 {
                     cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
                 });
