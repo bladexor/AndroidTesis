@@ -101,6 +101,7 @@ namespace Farma.Web
                 app.UseHsts();
             }
 
+            app.UseStatusCodePagesWithReExecute("/error/{0}"); //Para Manejar Errores 404 Not Found
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
