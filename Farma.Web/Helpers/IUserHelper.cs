@@ -2,6 +2,7 @@
 
 namespace Farma.Web.Helpers
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Data.Entities;
     using Farma.Web.Models;
@@ -42,6 +43,13 @@ namespace Farma.Web.Helpers
         Task<string> GeneratePasswordResetTokenAsync(User user);
 
         Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
+
+
+        Task<List<User>> GetAllUsersAsync();
+
+        Task RemoveUserFromRoleAsync(User user, string roleName);
+
+        Task DeleteUserAsync(User user);
 
     }
 

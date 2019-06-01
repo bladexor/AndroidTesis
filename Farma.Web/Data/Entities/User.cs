@@ -24,10 +24,19 @@ namespace Farma.Web.Data.Entities
         [MaxLength(100, ErrorMessage = "The field {0} only can contain {1} characters length.")]
         public string Address { get; set; }
 
-        public int CityId { get; set; }
+        [Display(Name = "Phone Number")]
+        public override string PhoneNumber { get => base.PhoneNumber; set => base.PhoneNumber = value; }
 
+        [Display(Name = "Email Confirmed")]
+        public override bool EmailConfirmed { get => base.EmailConfirmed; set => base.EmailConfirmed = value; }
+
+        public int CityId { get; set; }
         //[ForeignKey(nameof(CityId))]
         public City City { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Is Admin?")]
+        public bool IsAdmin { get; set; }
 
     }
 }
