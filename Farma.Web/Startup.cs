@@ -68,6 +68,7 @@ namespace Farma.Web
                 services.AddScoped<ICityRepository, CityRepository>();
 
                 services.AddScoped<IUserHelper, UserHelper>();
+                services.AddScoped<IMailHelper, MailHelper>();
 
 
             services.Configure<CookiePolicyOptions>(options =>
