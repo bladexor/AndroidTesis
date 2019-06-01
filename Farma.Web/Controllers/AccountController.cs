@@ -19,20 +19,28 @@ namespace Farma.Web.Controllers
     public class AccountController : Controller
     {
         private readonly IUserHelper userHelper;
+        private readonly IMailHelper mailHelper;
         private readonly IConfiguration configuration;
         private readonly IStateRepository stateRepository;
         private readonly ICityRepository cityRepository;
 
+        private bool confirmEmail;
+
         public AccountController(IUserHelper userHelper,
+                                 IMailHelper mailHelper,
                                  IConfiguration configuration,
                                  IStateRepository stateRepository,
                                  ICityRepository cityRepository
                                 )
         {
             this.userHelper = userHelper;
+            this.mailHelper = mailHelper;
             this.configuration = configuration;
             this.stateRepository = stateRepository;
             this.cityRepository = cityRepository;
+
+             confirmEmail= bool.Parse(configuration["SignIn:RequireConfirmedEmail"]);
+
         }
 
         public IActionResult Login()
@@ -50,6 +58,7 @@ namespace Farma.Web.Controllers
         {
             if (this.ModelState.IsValid)
             {
+               
                 var result = await this.userHelper.LoginAsync(model);
                 if (result.Succeeded)
                 {
@@ -116,22 +125,40 @@ namespace Farma.Web.Controllers
                         return this.View(model);
                     }
 
+                    if (this.confirmEmail) {
+                        //CON CONFIRMACION DE EMAIL REQUERIDO---------------------------------------------------------------
+                        var myToken = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
+                        var tokenLink = this.Url.Action("ConfirmEmail", "Account", new
+                        {
+                            userid = user.Id,
+                            token = myToken
+                        }, protocol: HttpContext.Request.Scheme);
 
-                    var loginViewModel = new LoginViewModel
-                    {
-                        Password = model.Password,
-                        RememberMe = false,
-                        Username = model.Username
-                    };
+                        this.mailHelper.SendMail(model.Username, "Email confirmation", $"<h1>Email Confirmation</h1>" +
+                            $"To allow the user, " +
+                            $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
+                        this.ViewBag.Message = "The instructions to allow your user has been sent to email.";
+                    }
+                    else
+                    { //SIN CONFIRMACION DE EMAIL--------------------------------------------------------
 
-                    var result2 = await this.userHelper.LoginAsync(loginViewModel);
+                        var loginViewModel = new LoginViewModel
+                        {
+                            Password = model.Password,
+                            RememberMe = false,
+                            Username = model.Username
+                        };
 
-                    if (result2.Succeeded)
-                    {
-                        return this.RedirectToAction("Index", "Home");
+                        var result2 = await this.userHelper.LoginAsync(loginViewModel);
+
+                        if (result2.Succeeded)
+                        {
+                            return this.RedirectToAction("Index", "Home");
+                        }
+
+                        this.ModelState.AddModelError(string.Empty, "The user couldn't be login.");
                     }
 
-                    this.ModelState.AddModelError(string.Empty, "The user couldn't be login.");
                     return this.View(model);
                 }
 
@@ -204,8 +231,6 @@ namespace Farma.Web.Controllers
                     {
                         model.States = this.stateRepository.GetComboStates();
                         model.Cities = this.stateRepository.GetComboCities(state.Id);
-                        //model.StateId = state.Id;
-                        //model.CityId = user.CityId;
                     }
                 }
                 else
@@ -304,7 +329,30 @@ namespace Farma.Web.Controllers
             var state = await this.stateRepository.GetStateWithCitiesAsync(stateId);
             return this.Json(state.Cities.OrderBy(c => c.Name));
         }
-        
+
+
+        //Para Confirmar Email de Usuarios Nuevos
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
+            {
+                return this.NotFound();
+            }
+
+            var user = await this.userHelper.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                return this.NotFound();
+            }
+
+            var result = await this.userHelper.ConfirmEmailAsync(user, token);
+            if (!result.Succeeded)
+            {
+                return this.NotFound();
+            }
+
+            return View();
+        }
 
     }
 

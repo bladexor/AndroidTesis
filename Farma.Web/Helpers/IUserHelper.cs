@@ -29,6 +29,14 @@ namespace Farma.Web.Helpers
 
         Task<bool> IsUserInRoleAsync(User user, string roleName);
 
+
+        //Para Confirmacion de Email Al Registrarse un Usuario-------------------------
+        Task<string> GenerateEmailConfirmationTokenAsync(User user);
+
+        Task<IdentityResult> ConfirmEmailAsync(User user, string token);
+
+        Task<User> GetUserByIdAsync(string userId);
+        //--------------------------------------------------------------------------------
     }
 
 }

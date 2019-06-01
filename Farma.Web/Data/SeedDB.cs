@@ -189,8 +189,11 @@ namespace Farma.Web.Data
                 await this.userHelper.AddUserToRoleAsync(user, "Admin");
             }
 
+            //Generando Token y Confirmando Email de Usuario
+            var token = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
+            await this.userHelper.ConfirmEmailAsync(user, token);
+                       
 
-            
         }
 
         private void AddState(string name)
