@@ -9,6 +9,7 @@ using Farma.Web.Data;
 using Farma.Web.Data.Entities;
 using Farma.Web.Data.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Farma.Web.Models;
 
 namespace Farma.Web.Controllers
 {
@@ -154,23 +155,23 @@ namespace Farma.Web.Controllers
                 return NotFound();
             }
 
-            var model = new City { StateId = state.Id };
+            var model = new CityViewModel { StateId = state.Id };
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCity(City model)
+        public async Task<IActionResult> AddCity(CityViewModel model)
         {
             //model.Id = 0; //Necesario para evitar excepcion
 
             if (this.ModelState.IsValid)
             {
-                var state=await this.stateRepository.GetStateWithCitiesAsync(model.Id);
+                var state=await this.stateRepository.GetStateWithCitiesAsync(model.StateId);
 
-                model.StateId = model.Id; //Por Alguna Razon se mapea el StateId en City.Id
-                model.Id = 0;             //Y City.StateId viene null
+              //  model.StateId = model.Id; //Por Alguna Razon se mapea el StateId en City.Id
+              //  model.Id = 0;             //Y City.StateId viene null
 
-                state.Cities.Add(model);
+                state.Cities.Add(new City { Name = model.Name });
                await stateRepository.UpdateAsync(state);
                // await this.cityRepository.CreateAsync(model);
 
@@ -196,20 +197,27 @@ namespace Farma.Web.Controllers
                 return NotFound();
             }
 
-            return View(city);
+            var state = await this.stateRepository.GetStateAsync(city);
+            if (state == null)
+            {
+                return NotFound();
+            }
+
+            return View(new CityViewModel {
+                CityId = city.Id,
+                Name=city.Name,
+                StateId=state.Id
+                                });
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditCity(City city)
+        public async Task<IActionResult> EditCity(CityViewModel city)
         {
             if (this.ModelState.IsValid)
             {
-                await this.cityRepository.UpdateAsync(city);
-                if (city.StateId != 0)
-                {
-                 
-                    return this.RedirectToAction("Details", new { id = city.StateId });
-                }
+                await this.cityRepository.UpdateAsync(new City { Id=city.CityId, Name=city.Name});
+                
+                return this.RedirectToAction("Details", new { id = city.StateId });
             }
 
             return this.View(city);
@@ -224,16 +232,17 @@ namespace Farma.Web.Controllers
             }
 
             var city = await this.cityRepository.GetByIdAsync(id.Value);
+
             if (city == null)
             {
                 return NotFound();
             }
 
-            var stateId = city.StateId;
+            var state = await stateRepository.GetStateAsync(city);
             await this.cityRepository.DeleteAsync(city);
 
             // return this.RedirectToAction($"Details/{countryId}");
-            return this.RedirectToAction("Details", new { id = stateId });
+            return this.RedirectToAction("Details", new { id = state.Id });
         }
     }
 }

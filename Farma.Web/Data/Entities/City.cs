@@ -19,9 +19,9 @@ namespace Farma.Web.Data.Entities
 
 
         //Clave Externa y Relacion Con la Entidad State
-        public int StateId { get; set; }
+        //public int StateId { get; set; }
 
-        [ForeignKey(nameof(StateId))]
-        public State State { get; set; }
+        //[ForeignKey(nameof(StateId))]
+        //public State State { get; set; }
     }
 }

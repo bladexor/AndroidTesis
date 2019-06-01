@@ -3,6 +3,7 @@
 namespace Farma.Web.Controllers
 {
     using Farma.Web.Data.Entities;
+    using Farma.Web.Data.Repositories;
     using Helpers;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -19,13 +20,19 @@ namespace Farma.Web.Controllers
     {
         private readonly IUserHelper userHelper;
         private readonly IConfiguration configuration;
+        private readonly IStateRepository stateRepository;
+        private readonly ICityRepository cityRepository;
 
         public AccountController(IUserHelper userHelper,
-                                 IConfiguration configuration
+                                 IConfiguration configuration,
+                                 IStateRepository stateRepository,
+                                 ICityRepository cityRepository
                                 )
         {
             this.userHelper = userHelper;
             this.configuration = configuration;
+            this.stateRepository = stateRepository;
+            this.cityRepository = cityRepository;
         }
 
         public IActionResult Login()
@@ -68,7 +75,13 @@ namespace Farma.Web.Controllers
 
         public IActionResult Register()
         {
-            return this.View();
+            var model = new RegisterNewUserViewModel
+            {
+                States = this.stateRepository.GetComboStates(),
+                Cities = this.stateRepository.GetComboCities(0)
+            };
+
+            return this.View(model);
         }
 
         [HttpPost]
@@ -79,12 +92,21 @@ namespace Farma.Web.Controllers
                 var user = await this.userHelper.GetUserByEmailAsync(model.Username);
                 if (user == null)
                 {
+                    //var city = await this.cityRepository.GetByIdAsync(model.CityId);
+                    var city= await this.stateRepository.GetCityAsync(model.CityId);
+                    //  city.Id = 0;
+
                     user = new User
                     {
                         FirstName = model.FirstName,
                         LastName = model.LastName,
                         Email = model.Username,
-                        UserName = model.Username
+                        UserName = model.Username,
+                        Address = model.Address,
+                        PhoneNumber = model.PhoneNumber,
+                        //CityId = model.CityId,
+                        City = city
+
                     };
 
                     var result = await this.userHelper.AddUserAsync(user, model.Password);
@@ -123,12 +145,30 @@ namespace Farma.Web.Controllers
         {
             var user = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
             var model = new ChangeUserViewModel();
+
             if (user != null)
             {
                 model.FirstName = user.FirstName;
                 model.LastName = user.LastName;
+                model.Address = user.Address;
+                model.PhoneNumber = user.PhoneNumber;
+
+                var city = await this.stateRepository.GetCityAsync(user.CityId);
+                if (city != null)
+                {
+                    var state = await this.stateRepository.GetStateAsync(city);
+                    if (state != null)
+                    {
+                        model.StateId = state.Id;
+                        model.Cities = this.stateRepository.GetComboCities(state.Id);
+                        model.States = this.stateRepository.GetComboStates();
+                        model.CityId = user.CityId;
+                    }
+                }
             }
 
+            model.Cities = this.stateRepository.GetComboCities(model.StateId);
+            model.States = this.stateRepository.GetComboStates();
             return this.View(model);
         }
 
@@ -140,8 +180,15 @@ namespace Farma.Web.Controllers
                 var user = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 if (user != null)
                 {
+                    var city = await this.stateRepository.GetCityAsync(model.CityId);
+
                     user.FirstName = model.FirstName;
                     user.LastName = model.LastName;
+                    user.Address = model.Address;
+                    user.PhoneNumber = model.PhoneNumber;
+                   // user.CityId = model.CityId;
+                    user.City = city;
+                                       
                     var respose = await this.userHelper.UpdateUserAsync(user);
                     if (respose.Succeeded)
                     {
@@ -150,6 +197,15 @@ namespace Farma.Web.Controllers
                     else
                     {
                         this.ModelState.AddModelError(string.Empty, respose.Errors.FirstOrDefault().Description);
+                    }
+
+                    var state = await this.stateRepository.GetStateAsync(city);
+                    if (state != null)
+                    {
+                        model.States = this.stateRepository.GetComboStates();
+                        model.Cities = this.stateRepository.GetComboCities(state.Id);
+                        //model.StateId = state.Id;
+                        //model.CityId = user.CityId;
                     }
                 }
                 else
@@ -160,6 +216,7 @@ namespace Farma.Web.Controllers
 
             return this.View(model);
         }
+
 
         public IActionResult ChangePassword()
         {
@@ -235,16 +292,19 @@ namespace Farma.Web.Controllers
             return this.BadRequest();
         }
 
-
+        
         public IActionResult NotAuthorized()
         {
             return this.View();
         }
 
-
-
-
-
+        //DEVUELVE UNH JSON PARA EL COMBOBOX DE CIUDADES DE CIERTO PAIS
+        public async Task<JsonResult> GetCitiesAsync(int stateId)
+        {
+            var state = await this.stateRepository.GetStateWithCitiesAsync(stateId);
+            return this.Json(state.Cities.OrderBy(c => c.Name));
+        }
+        
 
     }
 

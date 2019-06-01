@@ -4,14 +4,16 @@ using Farma.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Farma.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190531231211_CityOnUser")]
+    partial class CityOnUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace Farma.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int?>("StateId");
+                    b.Property<int>("StateId");
 
                     b.HasKey("Id");
 
@@ -229,9 +231,10 @@ namespace Farma.Web.Migrations
 
             modelBuilder.Entity("Farma.Web.Data.Entities.City", b =>
                 {
-                    b.HasOne("Farma.Web.Data.Entities.State")
+                    b.HasOne("Farma.Web.Data.Entities.State", "State")
                         .WithMany("Cities")
-                        .HasForeignKey("StateId");
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Farma.Web.Data.Entities.User", b =>

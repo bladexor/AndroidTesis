@@ -1,4 +1,4 @@
-﻿@model Farma.Web.Data.Entities.City
+﻿@model Farma.Web.Models.CityViewModel
 
 <h4>City</h4>
 <hr />
@@ -6,7 +6,7 @@
     <div class="col-md-4">
         <form asp-action="AddCity">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+            <input type="hidden" asp-for="StateId" />
 
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
