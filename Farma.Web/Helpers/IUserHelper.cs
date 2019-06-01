@@ -37,6 +37,12 @@ namespace Farma.Web.Helpers
 
         Task<User> GetUserByIdAsync(string userId);
         //--------------------------------------------------------------------------------
+
+        //Para Olvido de Contraseña y reseteo de la misma
+        Task<string> GeneratePasswordResetTokenAsync(User user);
+
+        Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
+
     }
 
 }

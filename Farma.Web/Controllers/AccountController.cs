@@ -134,10 +134,12 @@ namespace Farma.Web.Controllers
                             token = myToken
                         }, protocol: HttpContext.Request.Scheme);
 
-                        this.mailHelper.SendMail(model.Username, "Email confirmation", $"<h1>Email Confirmation</h1>" +
+                        this.mailHelper.SendMail(model.Username, "Farma.Web Email confirmation", $"<h1>Email Confirmation</h1>" +
                             $"To allow the user, " +
                             $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
                         this.ViewBag.Message = "The instructions to allow your user has been sent to email.";
+
+                        return this.RedirectToAction("RegisterSuccess", "Account");
                     }
                     else
                     { //SIN CONFIRMACION DE EMAIL--------------------------------------------------------
@@ -353,6 +355,74 @@ namespace Farma.Web.Controllers
 
             return View();
         }
+
+
+        public IActionResult RegisterSuccess()
+        {
+           return View();
+        }
+
+
+        public IActionResult RecoverPassword()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RecoverPassword(RecoverPasswordViewModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var user = await this.userHelper.GetUserByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "The email doesn't correspont to a registered user.");
+                    return this.View(model);
+                }
+
+                var myToken = await this.userHelper.GeneratePasswordResetTokenAsync(user);
+                var link = this.Url.Action(
+                    "ResetPassword",
+                    "Account",
+                    new { token = myToken }, protocol: HttpContext.Request.Scheme);
+                this.mailHelper.SendMail(model.Email, "Farma.Web Password Reset", $"<h1>Shop Password Reset</h1>" +
+                    $"To reset the password click in this link:</br></br>" +
+                    $"<a href = \"{link}\">Reset Password</a>");
+                this.ViewBag.Message = "The instructions to recover your password has been sent to email.";
+                return this.View();
+
+            }
+
+            return this.View(model);
+        }
+
+        public IActionResult ResetPassword(string token)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            var user = await this.userHelper.GetUserByEmailAsync(model.UserName);
+            if (user != null)
+            {
+                var result = await this.userHelper.ResetPasswordAsync(user, model.Token, model.Password);
+                if (result.Succeeded)
+                {
+                    this.ViewBag.Message = "Password reset successful.";
+                    return this.View();
+                }
+
+                this.ViewBag.Message = "Error while resetting the password.";
+                return View(model);
+            }
+
+            this.ViewBag.Message = "User not found.";
+            return View(model);
+        }
+
+
 
     }
 
