@@ -1,6 +1,7 @@
 ﻿using Farma.Web.Data.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace Farma.Web.Data.Repositories
 {
     public interface IStateRepository : IGenericRepository<State>
     {
-        IQueryable GetStatesWithCities();
+        IEnumerable<State> GetStatesWithCities();
             
         Task<State> GetStateWithCitiesAsync(int id);
 

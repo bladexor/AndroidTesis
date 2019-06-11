@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Farma.Web.Data.Repositories
                             .FirstOrDefaultAsync();
         }
 
-        public IQueryable GetStatesWithCities()
+        public IEnumerable<State> GetStatesWithCities()
         {
             return this.context.States
                 .Include(c => c.Cities)
