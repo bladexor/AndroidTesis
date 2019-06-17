@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Farma.Web.Controllers
 {
@@ -280,6 +281,7 @@ namespace Farma.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
         {
+           // Debug.Write(model.ToString());
             if (this.ModelState.IsValid)
             {
                 var user = await this.userHelper.GetUserByEmailAsync(model.Username);

@@ -30,7 +30,7 @@ namespace Farma.Web.Data.Repositories
         {
             return this.context.States
                 .Include(c => c.Cities)
-                .OrderBy(c => c.Name);
+                .OrderBy(s => s.Name);
         }
 
         public async Task<State> GetStateWithCitiesAsync(int id)
