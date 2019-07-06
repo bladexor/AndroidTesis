@@ -62,7 +62,8 @@ namespace Farma.Web
             //Servicio de Conexion a SQL Server
             services.AddDbContext<DataContext>(cfg =>
                 {
-                    cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
+                    //cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
+                    cfg.UseSqlite(this.Configuration.GetConnectionString("SqliteDefault"));
                 });
 
                 //SERVICIO DEL Seeder de BD
