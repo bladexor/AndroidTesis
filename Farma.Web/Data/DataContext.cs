@@ -11,6 +11,8 @@ namespace Farma.Web.Data
 
         public DbSet<City> Cities { get; set; }
 
+        public DbSet<Medicine> Medicines { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }

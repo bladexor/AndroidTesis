@@ -11,8 +11,9 @@ namespace Farma.Web.Data
     using Farma.Web.Data.Entities;
     using Farma.Web.Helpers;
     using Microsoft.AspNetCore.Identity;
+    using System.Net.Http;
+    using Newtonsoft.Json;
 
-    
     public class SeedDb
     {
         private readonly DataContext context;
@@ -159,8 +160,95 @@ namespace Farma.Web.Data
                 await this.context.SaveChangesAsync();
             }
 
+            //Nombres de Medicinas Obtenidas desde PROVITARED
+            if (!this.context.Medicines.Any())
+            {
+                ProvitaredHelper pvr = new ProvitaredHelper();
 
-            var user = await this.userHelper.GetUserByEmailAsync("bladi135@gmail.com");
+                List<Models.MedicineViewModel> list =await pvr.BuscarMedicinaPor("a");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("b");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("c");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("d");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("e");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("f");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("g");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("h");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("i");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("j");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("k");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("l");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("m");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("n");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("o");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("p");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("q");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("r");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("s");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("t");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("u");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("v");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("w");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("x");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("y");
+                foreach (var m in list) { AddMedicine(m.Name); }
+
+                list = await pvr.BuscarMedicinaPor("z");
+                foreach (var m in list) { AddMedicine(m.Name); }
+                //await this.context.SaveChangesAsync();
+
+                this.context.SaveChanges();
+            }
+
+
+                var user = await this.userHelper.GetUserByEmailAsync("bladi135@gmail.com");
             if (user == null)
             {
                 user = new User
@@ -209,6 +297,15 @@ namespace Farma.Web.Data
             this.context.States.Add(new State
             {
                 Cities=cities,
+                Name = name
+            });
+        }
+
+
+        private void AddMedicine(string name)
+        {
+            this.context.Medicines.Add(new Medicine
+            {
                 Name = name
             });
         }
