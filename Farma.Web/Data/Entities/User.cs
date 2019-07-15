@@ -38,5 +38,10 @@ namespace Farma.Web.Data.Entities
         [Display(Name = "Is Admin?")]
         public bool IsAdmin { get; set; }
 
+        public ICollection<Donation> Donations { get; set; }
+
+        public ICollection<Exchange> Exchanges { get; set; }
+
+        public ICollection<WantedMedicine> WantedMedicines { get; set; }
     }
 }

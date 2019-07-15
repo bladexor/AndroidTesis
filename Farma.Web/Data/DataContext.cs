@@ -13,6 +13,12 @@ namespace Farma.Web.Data
 
         public DbSet<Medicine> Medicines { get; set; }
 
+        public DbSet<Donation> Donations { get; set; }
+
+        public DbSet<Exchange> Exchanges { get; set; }
+
+        public DbSet<WantedMedicine> WantedMedicines { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
