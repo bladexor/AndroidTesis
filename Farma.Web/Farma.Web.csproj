@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Data\GenericData\medicines.csv" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css" />

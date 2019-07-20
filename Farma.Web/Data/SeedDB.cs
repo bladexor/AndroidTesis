@@ -163,10 +163,10 @@ namespace Farma.Web.Data
             //Nombres de Medicinas Obtenidas desde PROVITARED
             if (!this.context.Medicines.Any())
             {
-                
-                //await this.context.SaveChangesAsync();
 
-                this.context.SaveChanges();
+                //await this.context.SaveChangesAsync();
+               // var pathcsv = System.IO.Directory.GetCurrentDirectory()+"//Data//GenericData//medicines.csv";
+               // this.context.SaveChanges();
             }
 
 

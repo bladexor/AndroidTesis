@@ -18,7 +18,7 @@
     "Farma.Web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://192.168.43.169:5000",
+      "applicationUrl": "http://192.168.0.4:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
