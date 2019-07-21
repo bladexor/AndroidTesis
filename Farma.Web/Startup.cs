@@ -27,13 +27,13 @@ namespace Farma.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            bool confirmEmail = bool.Parse(Configuration["SignIn:RequireConfirmedEmail"]);
+            bool ConfirmEmail = bool.Parse(Configuration["SignIn:RequireConfirmedEmail"]);
             //Configuracion de Usuarios de IdentityFramework
             services.AddIdentity<User, IdentityRole>(cfg =>
             {
                 //Para Requerir Confirmación de Email Al Registrarse un nuevo usuario---------------------
                     cfg.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
-                    cfg.SignIn.RequireConfirmedEmail = confirmEmail; 
+                    cfg.SignIn.RequireConfirmedEmail = ConfirmEmail; 
                 //----------------------------------------------------------------------------------------
                 cfg.User.RequireUniqueEmail = true;
                 cfg.Password.RequireDigit = false;
@@ -77,6 +77,10 @@ namespace Farma.Web
                 services.AddScoped<IUserHelper, UserHelper>();
                 services.AddScoped<IMailHelper, MailHelper>();
 
+            services.AddScoped<IMedicineRepository, MedicineRepository>();
+            services.AddScoped<IDonationRepository, DonationRepository>();
+            services.AddScoped<IExchangeRepository, ExchangeRepository>();
+            services.AddScoped<IWantedMedicineRepository, WantedMedicineRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {

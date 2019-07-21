@@ -34,13 +34,12 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     @if (this.User.Identity.IsAuthenticated)
                     {
 
                         <li><a asp-area="" asp-controller="States" asp-action="Index"><i class="fa fa-map"></i> States</a></li>
                         <li><a asp-area="" asp-controller="Account" asp-action="Index"><i class="fa fa-users"></i> Users</a></li>
-
+                        <li><a asp-area="" asp-controller="Medicine" asp-action="Index"><i class="fa fa-medkit"></i> Medicines</a></li>
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

@@ -40,7 +40,7 @@ namespace Farma.Web.Controllers
             this.stateRepository = stateRepository;
             this.cityRepository = cityRepository;
 
-             confirmEmail= bool.Parse(configuration["SignIn:RequireConfirmedEmail"]);
+             confirmEmail= bool.Parse(configuration["SignIn:AutoConfirmEmail"]);
 
         }
 
@@ -126,24 +126,11 @@ namespace Farma.Web.Controllers
                         return this.View(model);
                     }
 
+                    var myToken = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
+
                     if (this.confirmEmail) {
-                        //CON CONFIRMACION DE EMAIL REQUERIDO---------------------------------------------------------------
-                        var myToken = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
-                        var tokenLink = this.Url.Action("ConfirmEmail", "Account", new
-                        {
-                            userid = user.Id,
-                            token = myToken
-                        }, protocol: HttpContext.Request.Scheme);
-
-                        this.mailHelper.SendMail(model.Username, "Farma.Web Email confirmation", $"<h1>Email Confirmation</h1>" +
-                            $"To allow the user, " +
-                            $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
-                        this.ViewBag.Message = "The instructions to allow your user has been sent to email.";
-
-                        return this.RedirectToAction("RegisterSuccess", "Account");
-                    }
-                    else
-                    { //SIN CONFIRMACION DE EMAIL--------------------------------------------------------
+                        //CON CONFIRMACION DE EMAIL AUTOMATICO---------------------------------------------------------------
+                        await this.userHelper.ConfirmEmailAsync(user, myToken);
 
                         var loginViewModel = new LoginViewModel
                         {
@@ -160,6 +147,23 @@ namespace Farma.Web.Controllers
                         }
 
                         this.ModelState.AddModelError(string.Empty, "The user couldn't be login.");
+                    }
+                    else
+                    {
+                        //CONFIRMACION DE EMAIL POR PARTE DEL USUARIO REQUERIDO--------------------------------------------------------
+                        var tokenLink = this.Url.Action("ConfirmEmail", "Account", new
+                        {
+                            userid = user.Id,
+                            token = myToken
+                        }, protocol: HttpContext.Request.Scheme);
+
+                        this.mailHelper.SendMail(model.Username, "Farma.Web Email confirmation", $"<h1>Email Confirmation</h1>" +
+                            $"To allow the user, " +
+                            $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
+                        this.ViewBag.Message = "The instructions to allow your user has been sent to email.";
+
+                        return this.RedirectToAction("RegisterSuccess", "Account");
+
                     }
 
                     return this.View(model);
