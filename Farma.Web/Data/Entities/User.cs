@@ -38,6 +38,8 @@ namespace Farma.Web.Data.Entities
         [Display(Name = "Is Admin?")]
         public bool IsAdmin { get; set; }
 
+        //TODO: Genero F o M
+
         public ICollection<Donation> Donations { get; set; }
 
         public ICollection<Exchange> Exchanges { get; set; }
