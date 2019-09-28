@@ -51,6 +51,7 @@ namespace Farma.Web.Helpers
 
         Task DeleteUserAsync(User user);
 
+        Task<User> GetUserwithDonationsAsync(string userEmail);
     }
 
 }

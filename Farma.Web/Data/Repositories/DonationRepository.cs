@@ -8,9 +8,11 @@ namespace Farma.Web.Data.Repositories
 {
     public class DonationRepository:GenericRepository<Donation>,IDonationRepository
     {
+        private readonly DataContext context;
+
         public DonationRepository(DataContext context) : base(context)
         {
-
+            this.context = context;
         }
     }
 }

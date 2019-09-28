@@ -139,6 +139,13 @@ namespace Farma.Web.Helpers
             await this.userManager.DeleteAsync(user);
         }
 
+        public async Task<User> GetUserwithDonationsAsync(string userEmail)
+        {
+            return await this.userManager.Users
+                .Include(u => u.Donations)
+                .Where(u=>u.UserName==userEmail).FirstAsync();
+              
+        }
     }
 
 }

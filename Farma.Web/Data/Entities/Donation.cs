@@ -20,9 +20,9 @@ namespace Farma.Web.Data.Entities
             public Medicine Medicine { get; set; }
         //---------------------------------------------
 
-      /*  // Relacion con tabla Usuarios
-            public int UserId { get; set; }
-            public User User { get; set; }
+       // Relacion con tabla Usuarios
+            public string UserId { get; set; }
+      //      public User User { get; set; }
         //---------------------------------------------*/
     }
 }
