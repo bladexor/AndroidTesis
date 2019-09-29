@@ -143,6 +143,7 @@ namespace Farma.Web.Helpers
         {
             return await this.userManager.Users
                 .Include(u => u.Donations)
+                
                 .Where(u=>u.UserName==userEmail).FirstAsync();
               
         }

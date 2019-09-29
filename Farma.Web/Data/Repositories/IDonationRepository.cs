@@ -8,5 +8,8 @@ namespace Farma.Web.Data.Repositories
 {
     public interface IDonationRepository:IGenericRepository<Donation>
     {
+        IEnumerable<Donation> GetDonationsByUserId(string uid);
     }
+
+    
 }

@@ -37,10 +37,8 @@ namespace Farma.Web.Controllers.API
                 return this.BadRequest("Invalid user");
             }
 
-            var donations=donationRepository.GetAll()
-                .Where(u => u.UserId == user.Id);
-           // var userd = await this.userHelper.GetUserwithDonationsAsync(user);
-           // var donations = userd.Donations;
+            var donations = donationRepository.GetDonationsByUserId(user.Id);
+          
             return Ok(donations);
         }
 
@@ -80,6 +78,24 @@ namespace Farma.Web.Controllers.API
            // user.Donations.Last();
             var newDonation = await this.donationRepository.CreateAsync(entityDonation);
             return Ok(newDonation);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteDonation([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest(ModelState);
+            }
+
+            var donation = await  this.donationRepository.GetByIdAsync(id);
+            if (donation == null)
+            {
+                return this.NotFound();
+            }
+
+            await this.donationRepository.DeleteAsync(donation);
+            return Ok(donation);
         }
     }
 }
