@@ -45,5 +45,7 @@ namespace Farma.Web.Data.Entities
         public ICollection<Exchange> Exchanges { get; set; }
 
         public ICollection<WantedMedicine> WantedMedicines { get; set; }
+
+        public ICollection<MedicineLocation> MedicineLocations { get; set; }
     }
 }
