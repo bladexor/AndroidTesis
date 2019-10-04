@@ -10,7 +10,10 @@ using Farma.Web.Helpers;
 using Farma.Web.Data.Entities;
 
 namespace Farma.Web.Controllers.API
-{
+{ 
+    [Route("api/[Controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    
     public class MedicineLocationController:Controller
     {
         private readonly IMedicineRepository medicineRepository;
