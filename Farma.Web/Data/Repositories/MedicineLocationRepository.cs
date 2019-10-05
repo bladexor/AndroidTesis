@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
 namespace Farma.Web.Data.Repositories
 {
     public class MedicineLocationRepository : GenericRepository<MedicineLocation>, IMedicineLocationRepository
@@ -18,7 +18,12 @@ namespace Farma.Web.Data.Repositories
 
         public IEnumerable<MedicineLocation> GetLocationsByUserId(string uid)
         {
-            throw new NotImplementedException();
+            var d = this.context.MedicineLocations
+                .Include(m => m.Medicine)
+                .Include(s=>s.City)
+                .Where(x => x.UserId == uid);
+
+            return d;
         }
     }
 }
