@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.Extensions.Configuration;
 
     [Route("api/[Controller]")]
 public class AccountController : Controller
@@ -19,16 +20,21 @@ public class AccountController : Controller
 	private readonly IUserHelper userHelper;
 	private readonly IStateRepository stateRepository;
 	private readonly IMailHelper mailHelper;
+        private readonly IConfiguration configuration;
+        private bool confirmEmail;
 
-	public AccountController(
+        public AccountController(
     	IUserHelper userHelper,
     	IStateRepository stateRepository,
-    	IMailHelper mailHelper)
+         IConfiguration configuration,
+        IMailHelper mailHelper)
 	{
     	this.userHelper = userHelper;
     	this.stateRepository = stateRepository;
     	this.mailHelper = mailHelper;
-	}
+
+            confirmEmail = bool.Parse(configuration["SignIn:AutoConfirmEmail"]);
+        }
 
 	[HttpPost]
 	public async Task<IActionResult> PostUser([FromBody] NewUserRequest request)
@@ -42,8 +48,8 @@ public class AccountController : Controller
         	});
     	}
 
-    	var user = await this.userHelper.GetUserByEmailAsync(request.Email);
-    	if (user != null)
+    	
+    	if (await this.userHelper.ExistUserAsync(request.Email))
     	{
         	return this.BadRequest(new Response
         	{
@@ -62,7 +68,7 @@ public class AccountController : Controller
         	});
     	}
 
-    	user = new Data.Entities.User
+    	var user = new Data.Entities.User
     	{
         	FirstName = request.FirstName,
         	LastName = request.LastName,
@@ -80,17 +86,27 @@ public class AccountController : Controller
         	return this.BadRequest(result.Errors.FirstOrDefault().Description);
     	}
 
-    	var myToken = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
-    	var tokenLink = this.Url.Action("ConfirmEmail", "Account", new
-    	{
-        	userid = user.Id,
-        	token = myToken
-    	}, protocol: HttpContext.Request.Scheme);
+ 
 
-    	this.mailHelper.SendMail(request.Email, "Email confirmation", $"<h1>Email Confirmation</h1>" +
-        	$"To allow the user, " +
-        	$"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
+                var myToken = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
 
+            if (this.confirmEmail)
+            {
+                //CON CONFIRMACION DE EMAIL AUTOMATICO---------------------------------------------------------------
+                await this.userHelper.ConfirmEmailAsync(user, myToken);
+            }
+            else
+            {
+                var tokenLink = this.Url.Action("ConfirmEmail", "Account", new
+                {
+                    userid = user.Id,
+                    token = myToken
+                }, protocol: HttpContext.Request.Scheme);
+
+                this.mailHelper.SendMail(request.Email, "Email confirmation", $"<h1>Email Confirmation</h1>" +
+                    $"To allow the user, " +
+                    $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
+            }
     	return Ok(new Response
     	{
         	IsSuccess = true,

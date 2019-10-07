@@ -30,10 +30,25 @@ namespace Farma.Web.Helpers
             return await this.userManager.CreateAsync(user, password);
         }
 
-        public async Task<User> GetUserByEmailAsync(string email)
+        public async Task<bool> ExistUserAsync(string email)
         {
             var user = await this.userManager.FindByEmailAsync(email);
-            return user;
+            if (user != null)
+                return true;
+            else
+                return false;
+        }
+
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            //var user = await this.userManager.FindByEmailAsync(email);
+           
+            //return user;
+
+            return await this.userManager.Users
+              .Include(u => u.Donations)
+              .Include(c=>c.City)
+              .Where(u => u.UserName == email).FirstAsync();
         }
 
         public async Task<SignInResult> LoginAsync(LoginViewModel model)
