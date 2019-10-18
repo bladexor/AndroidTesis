@@ -104,5 +104,21 @@ namespace Farma.Web.Controllers.API
             await this.medicineLocationRepository.DeleteAsync(location);
             return Ok(location);
         }
+        
+        [HttpPut]
+        public async Task<IActionResult> PutLocation([FromBody] MedicineLocation location)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest(ModelState);
+            }
+            
+            var response =  await medicineLocationRepository.UpdateAsync(location);
+            if (response==null)
+            {
+                return this.BadRequest();
+            }
+            return Ok(response);
+        }
     }
 }

@@ -97,5 +97,24 @@ namespace Farma.Web.Controllers.API
             await this.donationRepository.DeleteAsync(donation);
             return Ok(donation);
         }
+        
+        [HttpPut]
+        public async Task<IActionResult> PutDonation([FromBody] Donation donation)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest(ModelState);
+            }
+
+           
+           
+
+            var response =  await donationRepository.UpdateAsync(donation);
+            if (response==null)
+            {
+                return this.BadRequest();
+            }
+            return Ok(response);
+        }
     }
 }
