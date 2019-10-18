@@ -16,7 +16,7 @@ namespace Farma.Web.Data.Entities
 
         // Relacion con tabla Usuarios
         public string UserId { get; set; }
-        public User User { get; set; }
+        //public User User { get; set; }
         //---------------------------------------------
     }
 }

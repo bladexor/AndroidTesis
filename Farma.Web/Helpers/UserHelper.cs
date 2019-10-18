@@ -41,14 +41,22 @@ namespace Farma.Web.Helpers
 
         public async Task<User> GetUserByEmailAsync(string email)
         {
-            //var user = await this.userManager.FindByEmailAsync(email);
+            var user = await this.userManager.FindByEmailAsync(email);
            
-            //return user;
+            return user;
 
-            return await this.userManager.Users
+           /* return await this.userManager.Users
               .Include(u => u.Donations)
               .Include(c=>c.City)
-              .Where(u => u.UserName == email).FirstAsync();
+              .Where(u => u.UserName == email).FirstAsync(); */
+        }
+
+        public async Task<User> GetUserWithCitiesandDonations(string email)
+        {
+            return await this.userManager.Users
+                .Include(u => u.Donations)
+                .Include(c=>c.City)
+                .Where(u => u.UserName == email).FirstAsync();
         }
 
         public async Task<SignInResult> LoginAsync(LoginViewModel model)

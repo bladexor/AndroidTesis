@@ -12,6 +12,8 @@ namespace Farma.Web.Helpers
     {
         Task<User> GetUserByEmailAsync(string email);
 
+        Task<User> GetUserWithCitiesandDonations(string email);
+
         Task<bool> ExistUserAsync(string email);
 
         Task<IdentityResult> AddUserAsync(User user, string password);

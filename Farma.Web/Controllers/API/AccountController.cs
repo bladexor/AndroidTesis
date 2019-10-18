@@ -140,6 +140,33 @@ public class AccountController : Controller
 
             return Ok(user);
         }
+        
+        [HttpPost]
+        [Route("GetFullUserByEmail")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> GetFullUserByEmail([FromBody] RecoverPasswordRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest(new Response
+                {
+                    IsSuccess = false,
+                    Message = "Bad request"
+                });
+            }
+
+            var user = await this.userHelper.GetUserWithCitiesandDonations(request.Email);
+            if (user == null)
+            {
+                return this.BadRequest(new Response
+                {
+                    IsSuccess = false,
+                    Message = "User don't exists."
+                });
+            }
+
+            return Ok(user);
+        }
 
         [HttpPost]
         [Route("RecoverPassword")]
