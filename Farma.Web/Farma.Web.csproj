@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Data\GenericData\medicines.csv" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css" />
@@ -738,6 +737,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Farma.Common\Farma.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\GenericData\Medicines.csv" />
+    <Content Remove="Data\GenericData\Medicines.json" />
+    <EmbeddedResource Include="Data\Seed\Medicines.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>

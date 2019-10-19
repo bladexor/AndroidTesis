@@ -1,6 +1,13 @@
 ﻿
 
 
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Internal;
+using Microsoft.DotNet.PlatformAbstractions;
+using Microsoft.Extensions.Hosting;
+
 namespace Farma.Web.Data
 {
     using System;
@@ -13,6 +20,7 @@ namespace Farma.Web.Data
     using Microsoft.AspNetCore.Identity;
     using System.Net.Http;
     using Newtonsoft.Json;
+   
 
     public class SeedDb
     {
@@ -29,14 +37,49 @@ namespace Farma.Web.Data
 
         public async Task SeedAsync()
         {
+            
             await this.context.Database.EnsureCreatedAsync();
 
-            await this.userHelper.CheckRoleAsync("Admin");
-            await this.userHelper.CheckRoleAsync("Customer");
-
-
+            var separator = Path.DirectorySeparatorChar;
+            var dirSeedPath="Data" + separator + "Seed" + separator;
+            //Nombres de Medicinas Obtenidas desde PROVITARED
+            if (!this.context.Medicines.Any())
+            {
+                // var filePath = Path.Combine(AppContext.BaseDirectory, "Data/Seed/Medicines.json");
+                
+                var filePath = dirSeedPath + "Medicines.json";
+                var medicines = JsonConvert.DeserializeObject<List<Medicine>>(File.ReadAllText(filePath));
+                context.AddRange(medicines);
+                context.SaveChanges();
+            }
+            
             if (!this.context.States.Any())
             {
+                //Cargando estados
+                var filePath = dirSeedPath + "States.json";
+                var states = JsonConvert.DeserializeObject<List<State>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Amazonas
+                filePath = dirSeedPath + "Cities" + separator+"Amazonas.json";
+                var citiesAma=JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                var state=states.Find(x=>x.Name.Contains("Amazonas"));
+                state.Cities = citiesAma;
+                
+                //Ciudades de Anzoategui
+                filePath = dirSeedPath + "Cities" + separator+"Anzoategui.json";
+                var citiesAnz=JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                state=states.Find(x=>x.Name.Contains("Anzoátegui"));
+                state.Cities = citiesAnz;
+
+             
+                context.AddRange(states);
+                await context.SaveChangesAsync();
+             /* 
+                context.AddRange(types);
+                context.SaveChanges();
+                
                 //Amazonas State and Cities
                 var citiesAma = new List<City>
                 {
@@ -53,124 +96,15 @@ namespace Farma.Web.Data
                 };
 
                 this.AddState("Amazonas", citiesAma);
-
-                //Anzoátegui State and Cities
-                var citiesAnz = new List<City>
-                {
-                    new City { Name = "Anaco" },
-                    new City { Name = "Aragua de Barcelona" },
-                    new City { Name = "Atapirire" },
-
-                    new City { Name = "Barbacoa" },
-                    new City { Name = "Barcelona" },
-                    new City { Name = "Bergantin" },
-                    new City { Name = "Boca de Uchire" },
-
-                    new City { Name = "Cachipo" },
-                    new City { Name = "Caigua" },
-                    new City { Name = "Cantaura" },
-                    new City { Name = "Clarines" },
-
-                    new City { Name = "El Carito" },
-                    new City { Name = "El Hatillo" },
-                    new City { Name = "El Morro de Barcelona" },
-                    new City { Name = "El Pao" },
-                    new City { Name = "El Pilar" },
-                    new City { Name = "El Tigre" },
-
-                    new City { Name = "Guanape" },
-                    new City { Name = "Guanta" },
-                    new City { Name = "Guaribe de Cajigal" },
-
-                    new City { Name = "La Margarita" },
-                    new City { Name = "Lecherias" },
-                    new City { Name = "Los Altos de Santa Fe" },
-                    new City { Name = "Los Pilones" },
-
-                    new City { Name = "Mapire" },
-                    new City { Name = "Modulo de Boyacá" },
-                    new City { Name = "Modulo de Chuparin" },
-                    new City { Name = "Mundo Nuevo" },
-
-                    new City { Name = "Naricual" },
-                    new City { Name = "Onoto" },
-
-                    new City { Name = "Pariaguan" },
-                    new City { Name = "Pertigalete" },
-                    new City { Name = "Piritu" },
-                    new City { Name = "Pozuelos" },
-                    new City { Name = "Puerto La Cruz" },
-                    new City { Name = "Puerto Piritu" },
-
-                    new City { Name = "Sabana de Uchire" },
-                    new City { Name = "San Diego de Cabrutica" },
-                    new City { Name = "San Joaquin" },
-                    new City { Name = "San Jose de Guanipa" },
-                    new City { Name = "San Mateo" },
-                    new City { Name = "San Miguel" },
-                    new City { Name = "San Pablo" },
-                    new City { Name = "San Tome" },
-                    new City { Name = "Santa Ana" },
-                    new City { Name = "Santa Clara" },
-                    new City { Name = "Santa Cruz del Orinoco" },
-                    new City { Name = "Santa Ines" },
-                    new City { Name = "Santa Rosa" },
-
-                    new City { Name = "Urica" },
-                    new City { Name = "Uverito" },
-
-                    new City { Name = "Valle Guanape" },
-                    new City { Name = "Zuata" }
-                };
-
-                this.AddState("Anzoátegui", citiesAnz);
-
-                //Others States and Cities
-                this.AddState("Apure");
-                this.AddState("Aragua");
-
-                this.AddState("Barinas");
-                this.AddState("Bolívar");
-
-                this.AddState("Carabobo");
-                this.AddState("Cojedes");
-
-                this.AddState("Delta Amacuro");
-                this.AddState("Distrito Capital");
-
-                this.AddState("Falcon");
-                this.AddState("Guarico");
-                this.AddState("Lara");
-
-                this.AddState("Mérida");
-                this.AddState("Miranda");
-                this.AddState("Monagas");
-
-                this.AddState("Nueva Esparta");
-                this.AddState("Portuguesa");
-                this.AddState("Sucre");
-
-                this.AddState("Táchira");
-                this.AddState("Trujillo");
-
-                this.AddState("Vargas");
-                this.AddState("Yaracuy");
-                this.AddState("Zulia");
-
-                await this.context.SaveChangesAsync();
+           */
+                
             }
 
-            //Nombres de Medicinas Obtenidas desde PROVITARED
-            if (!this.context.Medicines.Any())
-            {
+            
+            await this.userHelper.CheckRoleAsync("Admin");
+            await this.userHelper.CheckRoleAsync("Customer");
 
-                //await this.context.SaveChangesAsync();
-               // var pathcsv = System.IO.Directory.GetCurrentDirectory()+"//Data//GenericData//medicines.csv";
-               // this.context.SaveChanges();
-            }
-
-
-                var user = await this.userHelper.GetUserByEmailAsync("bladi135@gmail.com");
+            var user = await this.userHelper.GetUserByEmailAsync("bladi135@gmail.com");
             if (user == null)
             {
                 user = new User

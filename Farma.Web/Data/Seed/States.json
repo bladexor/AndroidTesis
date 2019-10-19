@@ -1,0 +1,98 @@
+[
+    {
+        "Id": "1",
+        "Name": "Amazonas"
+    },
+    {
+        "Id": "2",
+        "Name": "Anzoátegui"
+    },
+    {
+        "Id": "3",
+        "Name": "Apure"
+    },
+    {
+        "Id": "4",
+        "Name": "Aragua"
+    },
+    {
+        "Id": "5",
+        "Name": "Barinas"
+    },
+    {
+        "Id": "6",
+        "Name": "Bolívar"
+    },
+    {
+        "Id": "7",
+        "Name": "Carabobo"
+    },
+    {
+        "Id": "8",
+        "Name": "Cojedes"
+    },
+    {
+        "Id": "9",
+        "Name": "Delta Amacuro"
+    },
+    {
+        "Id": "10",
+        "Name": "Distrito Capital"
+    },
+    {
+        "Id": "11",
+        "Name": "Falcon"
+    },
+    {
+        "Id": "12",
+        "Name": "Guarico"
+    },
+    {
+        "Id": "13",
+        "Name": "Lara"
+    },
+    {
+        "Id": "14",
+        "Name": "Miranda"
+    },
+    {
+        "Id": "15",
+        "Name": "Monagas"
+    },
+    {
+        "Id": "16",
+        "Name": "Mérida"
+    },
+    {
+        "Id": "17",
+        "Name": "Nueva Esparta"
+    },
+    {
+        "Id": "18",
+        "Name": "Portuguesa"
+    },
+    {
+        "Id": "19",
+        "Name": "Sucre"
+    },
+    {
+        "Id": "20",
+        "Name": "Trujillo"
+    },
+    {
+        "Id": "21",
+        "Name": "Táchira"
+    },
+    {
+        "Id": "22",
+        "Name": "Vargas"
+    },
+    {
+        "Id": "23",
+        "Name": "Yaracuy"
+    },
+    {
+        "Id": "24",
+        "Name": "Zulia"
+    }
+]
