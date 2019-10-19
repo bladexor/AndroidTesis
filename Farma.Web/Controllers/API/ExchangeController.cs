@@ -170,5 +170,23 @@ namespace Farma.Web.Controllers.API
             await this.wantedMedicineRepository.DeleteAsync(wanted);
             return Ok(wanted);
         }
+        
+        [HttpPut]
+                public async Task<IActionResult> PutExchange([FromBody] Exchange exchange)
+                {
+                    if (!ModelState.IsValid)
+                    {
+                        return this.BadRequest(ModelState);
+                    }
+        
+                                     
+        
+                    var response =  await exchangeRepository.UpdateAsync(exchange);
+                    if (response==null)
+                    {
+                        return this.BadRequest();
+                    }
+                    return Ok(response);
+                }
     }
 }
