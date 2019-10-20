@@ -61,87 +61,149 @@ namespace Farma.Web.Data
                 
                 //Ciudades de Amazonas
                 filePath = dirSeedPath + "Cities" + separator+"Amazonas.json";
-                var citiesAma=JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
+               
                 var state=states.Find(x=>x.Name.Contains("Amazonas"));
-                state.Cities = citiesAma;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
                 
                 //Ciudades de Anzoategui
                 filePath = dirSeedPath + "Cities" + separator+"Anzoategui.json";
-                var citiesAnz=JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
+             
                 state=states.Find(x=>x.Name.Contains("Anzoátegui"));
-                state.Cities = citiesAnz;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 //Ciudades de Apure
                 filePath = dirSeedPath + "Cities" + separator + "Apure.json";
-                var citiesApu = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+               
                 state = states.Find(x => x.Name.Contains("Apure"));
-                state.Cities = citiesApu;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 //Ciudades de Aragua
                 filePath = dirSeedPath + "Cities" + separator + "Aragua.json";
-                var citiesAra = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+                
                 state = states.Find(x => x.Name.Contains("Aragua"));
-                state.Cities = citiesAra;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 //Ciudades de Barinas
                 filePath = dirSeedPath + "Cities" + separator + "Barinas.json";
-                var citiesBar = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+                
                 state = states.Find(x => x.Name.Contains("Barinas"));
-                state.Cities = citiesBar;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 //Ciudades de Bolivar
                 filePath = dirSeedPath + "Cities" + separator + "Bolivar.json";
-                var citiesBol = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+               
                 state = states.Find(x => x.Name.Contains("Bolívar"));
-                state.Cities = citiesBol;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 //Ciudades de Carabobo
                 filePath = dirSeedPath + "Cities" + separator + "Carabobo.json";
-                var citiesCar = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+       
                 state = states.Find(x => x.Name.Contains("Carabobo"));
-                state.Cities = citiesCar;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 //Ciudades de Cojedes
                 filePath = dirSeedPath + "Cities" + separator + "Cojedes.json";
-                var citiesCoj = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+                
                 state = states.Find(x => x.Name.Contains("Cojedes"));
-                state.Cities = citiesCoj;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
+                //Ciudades de Delta Amacuro
+                filePath = dirSeedPath + "Cities" + separator + "Delta Amacuro.json";
+               
+                state = states.Find(x => x.Name.Contains("Delta Amacuro"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
                 //Ciudades de Distrito Capital
                 filePath = dirSeedPath + "Cities" + separator + "Distrito Capital.json";
-                var citiesDis = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 state = states.Find(x => x.Name.Contains("Distrito Capital"));
-                state.Cities = citiesDis;
-
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Falcon
+                filePath = dirSeedPath + "Cities" + separator + "Falcon.json";
+                
+                state = states.Find(x => x.Name.Contains("Falcón"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Guarico
+                filePath = dirSeedPath + "Cities" + separator + "Guarico.json";
+               
+                state = states.Find(x => x.Name.Contains("Guarico"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Lara
+                filePath = dirSeedPath + "Cities" + separator + "Lara.json";
+               
+                state = states.Find(x => x.Name.Contains("Lara"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Merida
+                filePath = dirSeedPath + "Cities" + separator + "Merida.json";
+               
+                state = states.Find(x => x.Name.Contains("Mérida"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Miranda
+                filePath = dirSeedPath + "Cities" + separator + "Miranda.json";
+               
+                state = states.Find(x => x.Name.Contains("Miranda"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                
+                //Ciudades de Monagas
+                filePath = dirSeedPath + "Cities" + separator + "Monagas.json";
+               
+                state = states.Find(x => x.Name.Contains("Monagas"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Nueva Esparta
+                filePath = dirSeedPath + "Cities" + separator + "Nueva Esparta.json";
+               
+                state = states.Find(x => x.Name.Contains("Nueva Esparta"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                
+                //Ciudades de Portuguesa
+                filePath = dirSeedPath + "Cities" + separator + "Portuguesa.json";
+               
+                state = states.Find(x => x.Name.Contains("Portuguesa"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
                 //Ciudades de Sucre
                 filePath = dirSeedPath + "Cities" + separator + "Sucre.json";
-                var citiesSuc = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+              
                 state = states.Find(x => x.Name.Contains("Sucre"));
-                state.Cities = citiesSuc;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
+                //Ciudades de Tachira
+                filePath = dirSeedPath + "Cities" + separator + "Tachira.json";
+              
+                state = states.Find(x => x.Name.Contains("Táchira"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Trujillo
+                filePath = dirSeedPath + "Cities" + separator + "Trujillo.json";
+              
+                state = states.Find(x => x.Name.Contains("Trujillo"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
+                //Ciudades de Vargas
+                filePath = dirSeedPath + "Cities" + separator + "Vargas.json";
+              
+                state = states.Find(x => x.Name.Contains("Vargas"));
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
+                
                 //Ciudades de Yaracuy
                 filePath = dirSeedPath + "Cities" + separator + "Yaracuy.json";
-                var citiesYar = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+               
                 state = states.Find(x => x.Name.Contains("Yaracuy"));
-                state.Cities = citiesYar;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 //Ciudades de Zulia
                 filePath = dirSeedPath + "Cities" + separator + "Zulia.json";
-                var citiesZul = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
+               
                 state = states.Find(x => x.Name.Contains("Zulia"));
-                state.Cities = citiesZul;
+                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
 
                 context.AddRange(states);
                 await context.SaveChangesAsync();
