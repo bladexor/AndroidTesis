@@ -1,0 +1,77 @@
+@model Farma.Web.Models.PharmacyViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Pharmacy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+                
+                  <div class="form-group">
+                                <label asp-for="StateId" class="control-label"></label>
+                                <select asp-for="StateId" asp-items="Model.States" class="form-control"></select>
+                                <span asp-validation-for="StateId" class="text-danger"></span>
+                            </div>
+                
+                            <div class="form-group">
+                                <label asp-for="CityId" class="control-label"></label>
+                                <select asp-for="CityId" asp-items="Model.Cities" class="form-control"></select>
+                                <span asp-validation-for="CityId" class="text-danger"></span>
+                            </div>
+                
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+                
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Create</button>
+                <a asp-action="Index" class="btn btn-success"><i class="fa fa-chevron-left"></i> Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#StateId").change(function () {
+                $("#CityId").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetCitiesAsync")',
+                    dataType: 'json',
+                    data: { stateId: $("#StateId").val() },
+                    success: function (cities) {
+                        debugger;
+                        $("#CityId").append('<option value="0">(Select a city...)</option>');
+                        $.each(cities, function (i, city) {
+                            $("#CityId").append('<option value="'
+                                + city.id + '">'
+                                + city.name + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        alert('Failed to retrieve cities.' + ex);
+                    }
+                });
+                return false;
+            })
+        });
+    </script>
+}

@@ -207,28 +207,7 @@ namespace Farma.Web.Data
 
                 context.AddRange(states);
                 await context.SaveChangesAsync();
-             /* 
-                context.AddRange(types);
-                context.SaveChanges();
-                
-                //Amazonas State and Cities
-                var citiesAma = new List<City>
-                {
-                    new City { Name = "Maroa" },
-                    new City { Name = "Puerto Ayacucho" },
-                    new City { Name = "Puerto Paez" },
-
-                    new City { Name = "San Carlos de Rio Negro" },
-                    new City { Name = "San Fernando de Atabapo" },
-                    new City { Name = "San Fernando de Guainia" },
-                    new City { Name = "San Juan de Manapiare" },
-                    new City { Name = "San Simon de Cocuy" },
-                    new City { Name = "Santa Rosa de Amanadona" }
-                };
-
-                this.AddState("Amazonas", citiesAma);
-           */
-                
+            
             }
 
             
