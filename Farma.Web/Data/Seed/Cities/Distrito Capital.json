@@ -1,0 +1,1304 @@
+[
+    {
+        "Name": "Antímano"
+    },
+    {
+        "Name": "Aragüita"
+    },
+    {
+        "Name": "Barrio 1º de Noviembre"
+    },
+    {
+        "Name": "Barrio 11 de Agosto"
+    },
+    {
+        "Name": "Barrio 12 de Octubre"
+    },
+    {
+        "Name": "Barrio 24 de Julio"
+    },
+    {
+        "Name": "Barrio 29 de Julio"
+    },
+    {
+        "Name": "Barrio 5 de Julio"
+    },
+    {
+        "Name": "Barrio Agricultura"
+    },
+    {
+        "Name": "Barrio Agua Amarilla"
+    },
+    {
+        "Name": "Barrio Aguacatico"
+    },
+    {
+        "Name": "Barrio Aguacaticos"
+    },
+    {
+        "Name": "Barrio Ajuro"
+    },
+    {
+        "Name": "Barrio Alberto Ravell"
+    },
+    {
+        "Name": "Barrio Alcabala"
+    },
+    {
+        "Name": "Barrio Alfredo Rojas"
+    },
+    {
+        "Name": "Barrio Altos de Cútira"
+    },
+    {
+        "Name": "Barrio Altos de Lídice"
+    },
+    {
+        "Name": "Barrio Anauco"
+    },
+    {
+        "Name": "Barrio Andrés Bello"
+    },
+    {
+        "Name": "Barrio Andrés Eloy Blanco"
+    },
+    {
+        "Name": "Barrio Angarita"
+    },
+    {
+        "Name": "Barrio Antonio José de Sucre"
+    },
+    {
+        "Name": "Barrio Atlántico"
+    },
+    {
+        "Name": "Barrio Bambú"
+    },
+    {
+        "Name": "Barrio Boca de Lobo"
+    },
+    {
+        "Name": "Barrio Bosque de la Virgen"
+    },
+    {
+        "Name": "Barrio Brisas de Casalta"
+    },
+    {
+        "Name": "Barrio Brisas de Petare"
+    },
+    {
+        "Name": "Barrio Brisas de Propatria"
+    },
+    {
+        "Name": "Barrio Brisas del Paraíso"
+    },
+    {
+        "Name": "Barrio Bruzual"
+    },
+    {
+        "Name": "Barrio Buenos Aires el Paraiso"
+    },
+    {
+        "Name": "Barrio Buenos Aires Petare"
+    },
+    {
+        "Name": "Barrio Campo Rico"
+    },
+    {
+        "Name": "Barrio Caño Amarillo"
+    },
+    {
+        "Name": "Barrio Caraballo"
+    },
+    {
+        "Name": "Barrio Carapa"
+    },
+    {
+        "Name": "Barrio Carapita"
+    },
+    {
+        "Name": "Barrio Caucagüita"
+    },
+    {
+        "Name": "Barrio Centro Italo"
+    },
+    {
+        "Name": "Barrio Cerro Grande"
+    },
+    {
+        "Name": "Barrio Colón"
+    },
+    {
+        "Name": "Barrio Copey"
+    },
+    {
+        "Name": "Barrio Coromoto"
+    },
+    {
+        "Name": "Barrio Corral de Piedra"
+    },
+    {
+        "Name": "Barrio Cortada de Catia"
+    },
+    {
+        "Name": "Barrio Cortijos"
+    },
+    {
+        "Name": "Barrio Cotiza"
+    },
+    {
+        "Name": "Barrio Cristal"
+    },
+    {
+        "Name": "Barrio el Algodonal"
+    },
+    {
+        "Name": "Barrio el Calvario"
+    },
+    {
+        "Name": "Barrio el Campito"
+    },
+    {
+        "Name": "Barrio el Carmen Catia"
+    },
+    {
+        "Name": "Barrio el Cerrito"
+    },
+    {
+        "Name": "Barrio el Desvío"
+    },
+    {
+        "Name": "Barrio el Encanto"
+    },
+    {
+        "Name": "Barrio el Esfuerzo"
+    },
+    {
+        "Name": "Barrio el Guarataro"
+    },
+    {
+        "Name": "Barrio el Güire"
+    },
+    {
+        "Name": "Barrio el Mamón"
+    },
+    {
+        "Name": "Barrio el Manguito San Agustin del Sur"
+    },
+    {
+        "Name": "Barrio el Matadero"
+    },
+    {
+        "Name": "Barrio el Mirador"
+    },
+    {
+        "Name": "Barrio el Morro"
+    },
+    {
+        "Name": "Barrio el Mosquito"
+    },
+    {
+        "Name": "Barrio el Nazareno"
+    },
+    {
+        "Name": "Barrio el Observatorio"
+    },
+    {
+        "Name": "Barrio el Refugio"
+    },
+    {
+        "Name": "Barrio el Retiro"
+    },
+    {
+        "Name": "Barrio el Sifón"
+    },
+    {
+        "Name": "Barrio el Triángulo el Cementerio"
+    },
+    {
+        "Name": "Barrio el Triángulo la Vega"
+    },
+    {
+        "Name": "Barrio Fátima I y II"
+    },
+    {
+        "Name": "Barrio Fundación Mendoza"
+    },
+    {
+        "Name": "Barrio Gato Negro"
+    },
+    {
+        "Name": "Barrio Gramoven"
+    },
+    {
+        "Name": "Barrio Guaicaipuro I"
+    },
+    {
+        "Name": "Barrio Guaicaipuro II"
+    },
+    {
+        "Name": "Barrio Guaicoco"
+    },
+    {
+        "Name": "Barrio Guzmán Blanco"
+    },
+    {
+        "Name": "Barrio Hoyada"
+    },
+    {
+        "Name": "Barrio Hoyo de las Delicias"
+    },
+    {
+        "Name": "Barrio Isaías Medina"
+    },
+    {
+        "Name": "Barrio Jardín"
+    },
+    {
+        "Name": "Barrio José Félix Rivas"
+    },
+    {
+        "Name": "Barrio José Gregorio Hernández"
+    },
+    {
+        "Name": "Barrio Juan XXIII"
+    },
+    {
+        "Name": "Barrio Julián Blanco"
+    },
+    {
+        "Name": "Barrio la Bandera"
+    },
+    {
+        "Name": "Barrio la Barraca"
+    },
+    {
+        "Name": "Barrio la Bombilla"
+    },
+    {
+        "Name": "Barrio la Ceiba"
+    },
+    {
+        "Name": "Barrio la Ceibita"
+    },
+    {
+        "Name": "Barrio la Charneca"
+    },
+    {
+        "Name": "Barrio la Cuesta"
+    },
+    {
+        "Name": "Barrio la Dolorita"
+    },
+    {
+        "Name": "Barrio la Fénix"
+    },
+    {
+        "Name": "Barrio la Lagunita"
+    },
+    {
+        "Name": "Barrio la Libertad"
+    },
+    {
+        "Name": "Barrio la Línea"
+    },
+    {
+        "Name": "Barrio la Mampita"
+    },
+    {
+        "Name": "Barrio la Matanza"
+    },
+    {
+        "Name": "Barrio la Pedrera"
+    },
+    {
+        "Name": "Barrio la Planada"
+    },
+    {
+        "Name": "Barrio la Puma Rosa"
+    },
+    {
+        "Name": "Barrio la Rubia"
+    },
+    {
+        "Name": "Barrio la Silsa"
+    },
+    {
+        "Name": "Barrio la Trilla"
+    },
+    {
+        "Name": "Barrio la Veguita"
+    },
+    {
+        "Name": "Barrio la Yagüara II"
+    },
+    {
+        "Name": "Barrio Ladera"
+    },
+    {
+        "Name": "Barrio Larrazabal"
+    },
+    {
+        "Name": "Barrio las Adjuntas"
+    },
+    {
+        "Name": "Barrio las Luces"
+    },
+    {
+        "Name": "Barrio las Mayas"
+    },
+    {
+        "Name": "Barrio las Tapias"
+    },
+    {
+        "Name": "Barrio las Tunítas"
+    },
+    {
+        "Name": "Barrio Lídice"
+    },
+    {
+        "Name": "Barrio los Alpes"
+    },
+    {
+        "Name": "Barrio los Andinos"
+    },
+    {
+        "Name": "Barrio los Cangilones"
+    },
+    {
+        "Name": "Barrio los Cujicitos la Vega"
+    },
+    {
+        "Name": "Barrio los Cujicitos San Jose"
+    },
+    {
+        "Name": "Barrio los Erasos"
+    },
+    {
+        "Name": "Barrio los Eucaliptos"
+    },
+    {
+        "Name": "Barrio los Frailes"
+    },
+    {
+        "Name": "Barrio los Higitos"
+    },
+    {
+        "Name": "Barrio los Lanos"
+    },
+    {
+        "Name": "Barrio los Manolos"
+    },
+    {
+        "Name": "Barrio los Mecedores"
+    },
+    {
+        "Name": "Barrio los Paraparos"
+    },
+    {
+        "Name": "Barrio Maca"
+    },
+    {
+        "Name": "Barrio Mamera"
+    },
+    {
+        "Name": "Barrio Marín"
+    },
+    {
+        "Name": "Barrio Medina Angarita"
+    },
+    {
+        "Name": "Barrio Mesuca"
+    },
+    {
+        "Name": "Barrio Minas de Baruta"
+    },
+    {
+        "Name": "Barrio Monseñor Lebrúm"
+    },
+    {
+        "Name": "Barrio Naranjal 1 y 2"
+    },
+    {
+        "Name": "Barrio Nazareno"
+    },
+    {
+        "Name": "Barrio Negro Primero"
+    },
+    {
+        "Name": "Barrio Nuevo Chapellin"
+    },
+    {
+        "Name": "Barrio Nuevo Mundo"
+    },
+    {
+        "Name": "Barrio Palo Grande"
+    },
+    {
+        "Name": "Barrio Parate Bueno"
+    },
+    {
+        "Name": "Barrio Plan de Manzano"
+    },
+    {
+        "Name": "Barrio Providencia"
+    },
+    {
+        "Name": "Barrio Puerta de Caracas"
+    },
+    {
+        "Name": "Barrio Quebrada Honda"
+    },
+    {
+        "Name": "Barrio Ruperto Lugo"
+    },
+    {
+        "Name": "Barrio Sabana del Blanco"
+    },
+    {
+        "Name": "Barrio San Andrés"
+    },
+    {
+        "Name": "Barrio San Miguel Cota 905"
+    },
+    {
+        "Name": "Barrio San Pascual"
+    },
+    {
+        "Name": "Barrio San Rafael o Sucre"
+    },
+    {
+        "Name": "Barrio Simon Bolívar"
+    },
+    {
+        "Name": "Barrio Unidos"
+    },
+    {
+        "Name": "Barrio Valle Fresco"
+    },
+    {
+        "Name": "Barrio Zamora"
+    },
+    {
+        "Name": "Baruta"
+    },
+    {
+        "Name": "Bella Vista"
+    },
+    {
+        "Name": "Birongo"
+    },
+    {
+        "Name": "Cafetal"
+    },
+    {
+        "Name": "Candelaria"
+    },
+    {
+        "Name": "Caricuao"
+    },
+    {
+        "Name": "Carmeliatas"
+    },
+    {
+        "Name": "Carpintero"
+    },
+    {
+        "Name": "Centro Comercial Tamanaco"
+    },
+    {
+        "Name": "Centro Médico Docente"
+    },
+    {
+        "Name": "Chichiriviche"
+    },
+    {
+        "Name": "Colonia Mendoza"
+    },
+    {
+        "Name": "Colonia Tovar"
+    },
+    {
+        "Name": "Corocito"
+    },
+    {
+        "Name": "El Clavo"
+    },
+    {
+        "Name": "El Junquito"
+    },
+    {
+        "Name": "El Polvorín"
+    },
+    {
+        "Name": "El Valle"
+    },
+    {
+        "Name": "La Candelaria"
+    },
+    {
+        "Name": "La Democracia"
+    },
+    {
+        "Name": "La Pastora"
+    },
+    {
+        "Name": "La Vega"
+    },
+    {
+        "Name": "Las Casitas"
+    },
+    {
+        "Name": "Llanos de Miquillen"
+    },
+    {
+        "Name": "Loma del Aguila"
+    },
+    {
+        "Name": "Lomas de Terrabel"
+    },
+    {
+        "Name": "Los Magallanes"
+    },
+    {
+        "Name": "Macarao"
+    },
+    {
+        "Name": "Merecure"
+    },
+    {
+        "Name": "Panaquire"
+    },
+    {
+        "Name": "Paraíso"
+    },
+    {
+        "Name": "Párate Bueno"
+    },
+    {
+        "Name": "Parroquia Altagracia"
+    },
+    {
+        "Name": "Parroquia Catedral"
+    },
+    {
+        "Name": "Parroquia Santa Teresa"
+    },
+    {
+        "Name": "Pérez Bonalde"
+    },
+    {
+        "Name": "Piedra Azul"
+    },
+    {
+        "Name": "Piedras Pintadas"
+    },
+    {
+        "Name": "Pinto Salinas"
+    },
+    {
+        "Name": "Plaza Venezuela"
+    },
+    {
+        "Name": "Potrerito"
+    },
+    {
+        "Name": "Prado de María"
+    },
+    {
+        "Name": "Primero de Mayo"
+    },
+    {
+        "Name": "Propatria"
+    },
+    {
+        "Name": "Providencia"
+    },
+    {
+        "Name": "Puerta de Caracas"
+    },
+    {
+        "Name": "Quebrada Honda"
+    },
+    {
+        "Name": "Quinta Crespo"
+    },
+    {
+        "Name": "Quiripital"
+    },
+    {
+        "Name": "Ruiz Pineda"
+    },
+    {
+        "Name": "Sabana de Blanco"
+    },
+    {
+        "Name": "Sabana Grande"
+    },
+    {
+        "Name": "San Agustín del Norte"
+    },
+    {
+        "Name": "San Agustín del Sur"
+    },
+    {
+        "Name": "San Andrés"
+    },
+    {
+        "Name": "San Antonio"
+    },
+    {
+        "Name": "San Antonio Landér"
+    },
+    {
+        "Name": "San Bernardino"
+    },
+    {
+        "Name": "San José"
+    },
+    {
+        "Name": "San José del Avila"
+    },
+    {
+        "Name": "San Luis"
+    },
+    {
+        "Name": "San Marino"
+    },
+    {
+        "Name": "San Martín"
+    },
+    {
+        "Name": "San Michele"
+    },
+    {
+        "Name": "San Miguel"
+    },
+    {
+        "Name": "San Pascual"
+    },
+    {
+        "Name": "San Rafael o Sucre"
+    },
+    {
+        "Name": "San Román"
+    },
+    {
+        "Name": "Sans Souci"
+    },
+    {
+        "Name": "Santa Ana"
+    },
+    {
+        "Name": "Santa Barbara"
+    },
+    {
+        "Name": "Santa Cecilia"
+    },
+    {
+        "Name": "Santa Clara"
+    },
+    {
+        "Name": "Santa Eduvigis"
+    },
+    {
+        "Name": "Santa Fe"
+    },
+    {
+        "Name": "Santa Gertrudis"
+    },
+    {
+        "Name": "Santa Inés"
+    },
+    {
+        "Name": "Santa María"
+    },
+    {
+        "Name": "Santa Marta"
+    },
+    {
+        "Name": "Santa Mónica"
+    },
+    {
+        "Name": "Santa Rosa"
+    },
+    {
+        "Name": "Santa Sofía"
+    },
+    {
+        "Name": "Sarría"
+    },
+    {
+        "Name": "Sartenejas"
+    },
+    {
+        "Name": "Simón Rodríguez"
+    },
+    {
+        "Name": "Solares del Carmen"
+    },
+    {
+        "Name": "Sorocaima"
+    },
+    {
+        "Name": "Taguao"
+    },
+    {
+        "Name": "Tapipa"
+    },
+    {
+        "Name": "Terrazas de Carapita"
+    },
+    {
+        "Name": "Terrazas de Caricuao"
+    },
+    {
+        "Name": "Turiamo"
+    },
+    {
+        "Name": "U.C.V."
+    },
+    {
+        "Name": "Unidos"
+    },
+    {
+        "Name": "Unión"
+    },
+    {
+        "Name": "Urbanización"
+    },
+    {
+        "Name": "Urbanización 23 de Enero"
+    },
+    {
+        "Name": "Urbanización Alberto Ravell"
+    },
+    {
+        "Name": "Urbanización Alegría"
+    },
+    {
+        "Name": "Urbanización Alta Florida"
+    },
+    {
+        "Name": "Urbanización Alta Vista"
+    },
+    {
+        "Name": "Urbanización Artígas"
+    },
+    {
+        "Name": "Urbanización Arvelo"
+    },
+    {
+        "Name": "Urbanización Bella Vista"
+    },
+    {
+        "Name": "Urbanización Bello Monte"
+    },
+    {
+        "Name": "Urbanización Bicentenario"
+    },
+    {
+        "Name": "Urbanización Bolívar"
+    },
+    {
+        "Name": "Urbanización Buen Pastor"
+    },
+    {
+        "Name": "Urbanización Buena Vista"
+    },
+    {
+        "Name": "Urbanización Campo Claro"
+    },
+    {
+        "Name": "Urbanización Cañada de la Iglesia"
+    },
+    {
+        "Name": "Urbanización Cantarrana"
+    },
+    {
+        "Name": "Urbanización Caribe"
+    },
+    {
+        "Name": "Urbanización Caricuao"
+    },
+    {
+        "Name": "Urbanización Casalta II"
+    },
+    {
+        "Name": "Urbanización Casalta III"
+    },
+    {
+        "Name": "Urbanización Catia"
+    },
+    {
+        "Name": "Urbanización Cementerio"
+    },
+    {
+        "Name": "Urbanización Chacaito"
+    },
+    {
+        "Name": "Urbanización Chapellín"
+    },
+    {
+        "Name": "Urbanización Charallavito"
+    },
+    {
+        "Name": "Urbanización Ciudad Industrial Catia"
+    },
+    {
+        "Name": "Urbanización Coche"
+    },
+    {
+        "Name": "Urbanización Cochecito"
+    },
+    {
+        "Name": "Urbanización Colinas de Bella Vista"
+    },
+    {
+        "Name": "Urbanización Colinas de Coche"
+    },
+    {
+        "Name": "Urbanización Colinas de las Acacias"
+    },
+    {
+        "Name": "Urbanización Colinas de los Caobos"
+    },
+    {
+        "Name": "Urbanización Colinas de los Chaguaramos"
+    },
+    {
+        "Name": "Urbanización Colinas de Santa Mónica"
+    },
+    {
+        "Name": "Urbanización Colinas de Vista Alegre"
+    },
+    {
+        "Name": "Urbanización Continente"
+    },
+    {
+        "Name": "Urbanización Coracrevi"
+    },
+    {
+        "Name": "Urbanización Cortijos de Sarría"
+    },
+    {
+        "Name": "Urbanización Cristóbal Rojas"
+    },
+    {
+        "Name": "Urbanización Delgado Chalbaud"
+    },
+    {
+        "Name": "Urbanización Diego de Lozada"
+    },
+    {
+        "Name": "Urbanización el Amparo"
+    },
+    {
+        "Name": "Urbanización el Bosque"
+    },
+    {
+        "Name": "Urbanización el Conde"
+    },
+    {
+        "Name": "Urbanización el Estadio"
+    },
+    {
+        "Name": "Urbanización el Junko Country Club"
+    },
+    {
+        "Name": "Urbanización el Manicomio"
+    },
+    {
+        "Name": "Urbanización el Paraíso"
+    },
+    {
+        "Name": "Urbanización el Parque"
+    },
+    {
+        "Name": "Urbanización el Pinar"
+    },
+    {
+        "Name": "Urbanización el Rosario"
+    },
+    {
+        "Name": "Urbanización el Silencio"
+    },
+    {
+        "Name": "Urbanización el Topito"
+    },
+    {
+        "Name": "Urbanización Gran Colombia"
+    },
+    {
+        "Name": "Urbanización Guaicaipuro"
+    },
+    {
+        "Name": "Urbanización Guaicay"
+    },
+    {
+        "Name": "Urbanización Hijos de Dios"
+    },
+    {
+        "Name": "Urbanización Hipódromo"
+    },
+    {
+        "Name": "Urbanización Horizonte"
+    },
+    {
+        "Name": "Urbanización Hornos de Cal"
+    },
+    {
+        "Name": "Urbanización Industrial"
+    },
+    {
+        "Name": "Urbanización Industrial Carapa"
+    },
+    {
+        "Name": "Urbanización Industrial la Yaguara"
+    },
+    {
+        "Name": "Urbanización Industrial San Martín"
+    },
+    {
+        "Name": "Urbanización Kennedy"
+    },
+    {
+        "Name": "Urbanización la Campiña"
+    },
+    {
+        "Name": "Urbanización la Colina"
+    },
+    {
+        "Name": "Urbanización la Florida"
+    },
+    {
+        "Name": "Urbanización la Hacienda"
+    },
+    {
+        "Name": "Urbanización la Haciendita"
+    },
+    {
+        "Name": "Urbanización la Montaña"
+    },
+    {
+        "Name": "Urbanización la Palmita"
+    },
+    {
+        "Name": "Urbanización la Paz"
+    },
+    {
+        "Name": "Urbanización la Quebradita"
+    },
+    {
+        "Name": "Urbanización la Rinconada"
+    },
+    {
+        "Name": "Urbanización la Unión"
+    },
+    {
+        "Name": "Urbanización la Vizcaya"
+    },
+    {
+        "Name": "Urbanización las Américas"
+    },
+    {
+        "Name": "Urbanización las Delicias"
+    },
+    {
+        "Name": "Urbanización las Dos Rosas"
+    },
+    {
+        "Name": "Urbanización las Flores de Puente Hierro"
+    },
+    {
+        "Name": "Urbanización las Fuentes"
+    },
+    {
+        "Name": "Urbanización las Lomas"
+    },
+    {
+        "Name": "Urbanización las Lomas de la Florida"
+    },
+    {
+        "Name": "Urbanización las Lomas de San Rafael"
+    },
+    {
+        "Name": "Urbanización las Lomitas"
+    },
+    {
+        "Name": "Urbanización las Marías"
+    },
+    {
+        "Name": "Urbanización las Mesetas"
+    },
+    {
+        "Name": "Urbanización las Palmas"
+    },
+    {
+        "Name": "Urbanización Loira"
+    },
+    {
+        "Name": "Urbanización Lomas de Propatria"
+    },
+    {
+        "Name": "Urbanización Lomas de San Román"
+    },
+    {
+        "Name": "Urbanización Lomas de Santa Marta"
+    },
+    {
+        "Name": "Urbanización Lomas de Urdaneta"
+    },
+    {
+        "Name": "Urbanización Lomas del Mirador"
+    },
+    {
+        "Name": "Urbanización Longaray"
+    },
+    {
+        "Name": "Urbanización los Campitos"
+    },
+    {
+        "Name": "Urbanización los Caobos"
+    },
+    {
+        "Name": "Urbanización los Carmenes"
+    },
+    {
+        "Name": "Urbanización los Castaños"
+    },
+    {
+        "Name": "Urbanización los Cedros"
+    },
+    {
+        "Name": "Urbanización los Chaguaramos"
+    },
+    {
+        "Name": "Urbanización los flores de Catia"
+    },
+    {
+        "Name": "Urbanización los Geranios"
+    },
+    {
+        "Name": "Urbanización los Guayabitos"
+    },
+    {
+        "Name": "Urbanización los Laureles"
+    },
+    {
+        "Name": "Urbanización los Mangos"
+    },
+    {
+        "Name": "Urbanización los Molinos"
+    },
+    {
+        "Name": "Urbanización los Palos Grandes"
+    },
+    {
+        "Name": "Urbanización los Pomelos"
+    },
+    {
+        "Name": "Urbanización los Rosales"
+    },
+    {
+        "Name": "Urbanización Luis Hurtado"
+    },
+    {
+        "Name": "Urbanización Mariperez"
+    },
+    {
+        "Name": "Urbanización Miranda"
+    },
+    {
+        "Name": "Urbanización Mis Encantos"
+    },
+    {
+        "Name": "Urbanización Montalban"
+    },
+    {
+        "Name": "Urbanización Monte Cristo"
+    },
+    {
+        "Name": "Urbanización Monte Elena"
+    },
+    {
+        "Name": "Urbanización Monte Piedad"
+    },
+    {
+        "Name": "Urbanización Monterrey"
+    },
+    {
+        "Name": "Urbanización Nueva Caracas"
+    },
+    {
+        "Name": "Urbanización Nueva Granada"
+    },
+    {
+        "Name": "Urbanización Oritopo"
+    },
+    {
+        "Name": "Urbanización Parque Anauco"
+    },
+    {
+        "Name": "Urbanización Parque Avila"
+    },
+    {
+        "Name": "Urbanización Parque Carabobo"
+    },
+    {
+        "Name": "Urbanización Parque Central"
+    },
+    {
+        "Name": "Urbanización Parque Humboldt"
+    },
+    {
+        "Name": "Urbanización Pedro Camejo"
+    },
+    {
+        "Name": "Urbanización Perez Bonalde"
+    },
+    {
+        "Name": "Urbanización Piedra Azul"
+    },
+    {
+        "Name": "Urbanización Pinto Salinas"
+    },
+    {
+        "Name": "Urbanización Potrerito"
+    },
+    {
+        "Name": "Urbanización Prados de Maria"
+    },
+    {
+        "Name": "Urbanización Propatria"
+    },
+    {
+        "Name": "Urbanización Quinta Crespo"
+    },
+    {
+        "Name": "Urbanización Ruiz Pineda"
+    },
+    {
+        "Name": "Urbanización Sabana Grande"
+    },
+    {
+        "Name": "Urbanización San Agustin del Norte"
+    },
+    {
+        "Name": "Urbanización San Agustin del Sur"
+    },
+    {
+        "Name": "Urbanización San Antonio el Valle"
+    },
+    {
+        "Name": "Urbanización San Antonio Sabana Grande"
+    },
+    {
+        "Name": "Urbanización San Bernardino"
+    },
+    {
+        "Name": "Urbanización San Jose del Avila"
+    },
+    {
+        "Name": "Urbanización San Luis"
+    },
+    {
+        "Name": "Urbanización San Marino"
+    },
+    {
+        "Name": "Urbanización San Martín"
+    },
+    {
+        "Name": "Urbanización San Michele"
+    },
+    {
+        "Name": "Urbanización San Román"
+    },
+    {
+        "Name": "Urbanización Santa Ana"
+    },
+    {
+        "Name": "Urbanización Santa Cecilia"
+    },
+    {
+        "Name": "Urbanización Santa Clara"
+    },
+    {
+        "Name": "Urbanización Santa Maria"
+    },
+    {
+        "Name": "Urbanización Santa Monica"
+    },
+    {
+        "Name": "Urbanización Santa Rosa"
+    },
+    {
+        "Name": "Urbanización Santa Rosa de Lima"
+    },
+    {
+        "Name": "Urbanización Sarria"
+    },
+    {
+        "Name": "Urbanización Simon Rodriguez"
+    },
+    {
+        "Name": "Urbanización Terraza de Caricuao"
+    },
+    {
+        "Name": "Urbanización Terraza de Santa Monica"
+    },
+    {
+        "Name": "Urbanización Urdaneta"
+    },
+    {
+        "Name": "Urbanización Valle Abajo"
+    },
+    {
+        "Name": "Urbanización Valle Alto"
+    },
+    {
+        "Name": "Urbanización Valmore Rodriguez"
+    },
+    {
+        "Name": "Urbanización Villa Zoila"
+    },
+    {
+        "Name": "Urbanización Vista Alegre"
+    },
+    {
+        "Name": "Urbanización Washington"
+    },
+    {
+        "Name": "Urdaneta"
+    },
+    {
+        "Name": "Valle Abajo"
+    },
+    {
+        "Name": "Valle Alto"
+    },
+    {
+        "Name": "Valle Arriba"
+    },
+    {
+        "Name": "Valle Fresco"
+    },
+    {
+        "Name": "Valmore Rodríguez"
+    },
+    {
+        "Name": "Villa Croacia"
+    },
+    {
+        "Name": "Villa Zoila"
+    },
+    {
+        "Name": "Vista Al Mar"
+    },
+    {
+        "Name": "Vista Alegre"
+    },
+    {
+        "Name": "Washington"
+    }
+]
