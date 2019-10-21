@@ -332,12 +332,6 @@ namespace Farma.Web.Controllers
             return this.View();
         }
 
-        //DEVUELVE UNH JSON PARA EL COMBOBOX DE CIUDADES DE CIERTO PAIS
-        public async Task<JsonResult> GetCitiesAsync(int stateId)
-        {
-            var state = await this.stateRepository.GetStateWithCitiesAsync(stateId);
-            return this.Json(state.Cities.OrderBy(c => c.Name));
-        }
 
 
         //Para Confirmar Email de Usuarios Nuevos

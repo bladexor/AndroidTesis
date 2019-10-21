@@ -175,7 +175,7 @@ namespace Farma.Web.Controllers
                await stateRepository.UpdateAsync(state);
                // await this.cityRepository.CreateAsync(model);
 
-                //return this.RedirectToAction($"Details/{model.CountryId}");
+        //return this.RedirectToAction($"Details/{model.CountryId}");
                 return this.RedirectToAction("Details", new { id = model.StateId });
             }
 
@@ -243,6 +243,14 @@ namespace Farma.Web.Controllers
 
             // return this.RedirectToAction($"Details/{countryId}");
             return this.RedirectToAction("Details", new { id = state.Id });
+        }
+        
+        
+        //DEVUELVE UNH JSON PARA EL COMBOBOX DE CIUDADES DE CIERTO PAIS
+        public async Task<JsonResult> GetCitiesAsync(int stateId)
+        {
+            var state = await this.stateRepository.GetStateWithCitiesAsync(stateId);
+            return this.Json(state.Cities.OrderBy(c => c.Name));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Farma.Web.Models
         public string Description { get; set; }
 
         
-        [MaxLength(100, ErrorMessage = "The field {0} only can contain {1} characters length.")]
+        [MaxLength(150, ErrorMessage = "The field {0} only can contain {1} characters length.")]
         public string Address { get; set; }
 
         [MaxLength(20, ErrorMessage = "The field {0} only can contain {1} characters length.")]
@@ -33,6 +33,9 @@ namespace Farma.Web.Models
 
         public IEnumerable<SelectListItem> States { get; set; }
 
+        public string Latitude { get; set; }
+        
+        public string Longitude { get; set; }
     }
 
 }

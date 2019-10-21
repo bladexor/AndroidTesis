@@ -1,5 +1,6 @@
 using Farma.Web.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Farma.Web.Controllers
 {
@@ -29,7 +30,10 @@ namespace Farma.Web.Controllers
 
             public async Task<IActionResult> Index()
             {
-                var pharmacies =  this.pharmacyRepository.GetAll().ToList().OrderBy(c=>c.Description);
+                var pharmacies =  this.pharmacyRepository.GetAll()
+                            .Include(c=>c.City).ToList()
+                            .OrderBy(c=>c.Description);
+                
                 /*var users = await this.userHelper.GetAllUsersAsync();
                 foreach (var med in medicines)
                 {
@@ -67,11 +71,22 @@ namespace Farma.Web.Controllers
             // POST: Pharmacy/Create
             [HttpPost]
             [ValidateAntiForgeryToken]
-            public async Task<IActionResult> Create(Pharmacy pharmacy)
+            public async Task<IActionResult> Create(PharmacyViewModel pharmacy)
             {
                 if (ModelState.IsValid)
                 {
-                    await pharmacyRepository.CreateAsync(pharmacy);
+                   var p=new Pharmacy
+                    {
+                        Description = pharmacy.Description,
+                        Address = pharmacy.Address,
+                        PhoneNumber = pharmacy.PhoneNumber,
+                        Latitude = pharmacy.Latitude,
+                        Longitude = pharmacy.Longitude,
+                        CityId = pharmacy.CityId,
+                        StateId = pharmacy.StateId
+                    };
+                    
+                    await pharmacyRepository.CreateAsync(p);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(pharmacy);
