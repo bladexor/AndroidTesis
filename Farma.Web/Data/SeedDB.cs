@@ -209,45 +209,63 @@ namespace Farma.Web.Data
                 await context.SaveChangesAsync();
             
             }
-
             
             await this.userHelper.CheckRoleAsync("Admin");
             await this.userHelper.CheckRoleAsync("Customer");
-
-            var user = await this.userHelper.GetUserByEmailAsync("bladi135@gmail.com");
-            if (user == null)
-            {
-                user = new User
+            await this.userHelper.CheckRoleAsync("Partner");
+            
+                var admin1 = new User
                 {
                     FirstName = "Bladimir",
                     LastName = "Velásquez",
                     Email = "bladi135@gmail.com",
                     UserName = "bladi135@gmail.com",
-                    PhoneNumber = "04121907221",
-                    Address = "Calle 8, Boyaca 3",
-                    City = this.context.States.FirstOrDefault().Cities.FirstOrDefault()
+                    PhoneNumber = "04261820882",
+                    Address = "Calle 8, Boyaca 3, Barcelona, Edo. Anzoategui",
+                    City = this.context.Cities.FirstOrDefault()
                 };
 
-                var result = await this.userHelper.AddUserAsync(user, "123456");
-                if (result != IdentityResult.Success)
+                addAUser(admin1,"123456","Admin");
+
+                
+                var admin2 = new User
                 {
-                    throw new InvalidOperationException("Could not create the user in seeder");
-                }
+                    FirstName = "Miguel",
+                    LastName = "Rojas",
+                    Email = "miguel@gmail.com",
+                    UserName = "miguel@gmail.com",
+                    PhoneNumber = "04166828016",
+                    Address = "Boyaca 5, detras del Liceo ETA, Barcelona, Edo. Anzoategui",
+                    City = this.context.Cities.FirstOrDefault()
+                };
 
-                await this.userHelper.AddUserToRoleAsync(user, "Admin");
-            }
+                addAUser(admin2,"123456","Admin");
+            
+                var customer1 = new User
+                {
+                    FirstName = "Yeniret",
+                    LastName = "Yeguez",
+                    Email = "yeni@gmail.com",
+                    UserName = "yeni@gmail.com",
+                    PhoneNumber = "04121907221",
+                    Address = "Calle Sucre, Santa Fe, Edo.Sucre",
+                    City = this.context.Cities.FirstOrDefault()
+                };
 
-            var isInRole = await this.userHelper.IsUserInRoleAsync(user, "Admin");
-            if (!isInRole)
-            {
-                await this.userHelper.AddUserToRoleAsync(user, "Admin");
-            }
+                addAUser(customer1,"123456","Customer");
+                
+                var customer2 = new User
+                {
+                    FirstName = "Leila",
+                    LastName = "Guzman",
+                    Email = "leila@gmail.com",
+                    UserName = "leila@gmail.com",
+                    PhoneNumber = "04248265399",
+                    Address = "Calle 8, Boyaca 3, Barcelona, Anzoategui",
+                    City = this.context.Cities.FirstOrDefault()
+                };
 
-            //Generando Token y Confirmando Email de Usuario
-            var token = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
-            await this.userHelper.ConfirmEmailAsync(user, token);
-                       
-
+                addAUser(customer2,"123456","Customer");
         }
 
         private void AddState(string name)
@@ -274,6 +292,35 @@ namespace Farma.Web.Data
             {
                 Name = name
             });
+        }
+
+
+        private  async void addAUser(User newuser, String password, String role)
+        {
+            var user = await this.userHelper.GetUserByEmailAsync(newuser.Email);
+            
+            if (user == null)
+            {
+                user = newuser;
+                
+                var result = await this.userHelper.AddUserAsync(user, password);
+                if (result != IdentityResult.Success)
+                {
+                    throw new InvalidOperationException("Could not create the user in seeder");
+                }
+
+                await this.userHelper.AddUserToRoleAsync(newuser, role);
+            }
+
+            var isInRole = await this.userHelper.IsUserInRoleAsync(user, role);
+            if (!isInRole)
+            {
+                await this.userHelper.AddUserToRoleAsync(user, role);
+            }
+            
+            //Generando Token y Confirmando Email de Usuario
+            var token = await this.userHelper.GenerateEmailConfirmationTokenAsync(user);
+            await this.userHelper.ConfirmEmailAsync(user, token);
         }
     }
 

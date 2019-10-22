@@ -1172,10 +1172,6 @@
         "Name": "MYFORTIC"
     },
     {
-        "Id": "294",
-        "Name": "MYFORTIC"
-    },
-    {
         "Id": "295",
         "Name": "NA-IODINA COMPUESTA"
     },
@@ -1641,10 +1637,6 @@
     },
     {
         "Id": "411",
-        "Name": "NEOSTIGMINA"
-    },
-    {
-        "Id": "412",
         "Name": "NEOSTIGMINA"
     },
     {
@@ -2872,10 +2864,6 @@
         "Name": "OXIMUM"
     },
     {
-        "Id": "719",
-        "Name": "OXACILINA"
-    },
-    {
         "Id": "720",
         "Name": "OXIMETOLONA"
     },
@@ -3872,10 +3860,6 @@
         "Name": "LEGALON"
     },
     {
-        "Id": "969",
-        "Name": "LEGALON"
-    },
-    {
         "Id": "970",
         "Name": "LEFOSAN"
     },
@@ -3885,10 +3869,6 @@
     },
     {
         "Id": "972",
-        "Name": "LEFLUNOMIDA"
-    },
-    {
-        "Id": "973",
         "Name": "LEFLUNOMIDA"
     },
     {
@@ -4066,10 +4046,6 @@
     {
         "Id": "1017",
         "Name": "LCITREX D"
-    },
-    {
-        "Id": "1018",
-        "Name": "LIDOCAINA"
     },
     {
         "Id": "1019",
@@ -5448,10 +5424,6 @@
         "Name": "MIDAZOLAM"
     },
     {
-        "Id": "1363",
-        "Name": "MIDAZOLAM"
-    },
-    {
         "Id": "1364",
         "Name": "MIDAZEPIN"
     },
@@ -6329,10 +6301,6 @@
     },
     {
         "Id": "1583",
-        "Name": "MESTINON"
-    },
-    {
-        "Id": "1584",
         "Name": "MESTINON"
     },
     {
@@ -7336,10 +7304,6 @@
         "Name": "TRIZIVIR"
     },
     {
-        "Id": "1835",
-        "Name": "TRIZIVIR"
-    },
-    {
         "Id": "1836",
         "Name": "TRIYODRONINA"
     },
@@ -7632,10 +7596,6 @@
         "Name": "TRINORDIOL"
     },
     {
-        "Id": "1909",
-        "Name": "TRINORDIOL"
-    },
-    {
         "Id": "1910",
         "Name": "TRINOMIA"
     },
@@ -7813,10 +7773,6 @@
     },
     {
         "Id": "1954",
-        "Name": "VALTREX"
-    },
-    {
-        "Id": "1955",
         "Name": "VALTREX"
     },
     {
@@ -8808,10 +8764,6 @@
         "Name": "TRANGOREX"
     },
     {
-        "Id": "2203",
-        "Name": "TRANGOREX"
-    },
-    {
         "Id": "2204",
         "Name": "TRAUMEEL"
     },
@@ -9365,10 +9317,6 @@
     },
     {
         "Id": "2342",
-        "Name": "VORICONAZOL"
-    },
-    {
-        "Id": "2343",
         "Name": "VORICONAZOL"
     },
     {
@@ -10028,10 +9976,6 @@
         "Name": "VENOFER"
     },
     {
-        "Id": "2508",
-        "Name": "VENOFER"
-    },
-    {
         "Id": "2509",
         "Name": "VENLAPINE"
     },
@@ -10632,10 +10576,6 @@
         "Name": "TEOFILINA"
     },
     {
-        "Id": "2659",
-        "Name": "VISIPAQUE"
-    },
-    {
         "Id": "2660",
         "Name": "VISIDONE"
     },
@@ -11026,10 +10966,6 @@
     {
         "Id": "2757",
         "Name": "ROLETRA"
-    },
-    {
-        "Id": "2758",
-        "Name": "ROTARIX"
     },
     {
         "Id": "2759",
@@ -12948,10 +12884,6 @@
         "Name": "STATICUM"
     },
     {
-        "Id": "3238",
-        "Name": "STILNOX"
-    },
-    {
         "Id": "3239",
         "Name": "STARLIX"
     },
@@ -12981,10 +12913,6 @@
     },
     {
         "Id": "3246",
-        "Name": "SPRYCEL"
-    },
-    {
-        "Id": "3247",
         "Name": "SPRYCEL"
     },
     {
@@ -13268,10 +13196,6 @@
         "Name": "TENORMIN"
     },
     {
-        "Id": "3318",
-        "Name": "TENORMIN"
-    },
-    {
         "Id": "3319",
         "Name": "TENORETIC"
     },
@@ -13452,10 +13376,6 @@
         "Name": "TAGUT"
     },
     {
-        "Id": "3364",
-        "Name": "TAMOXIFENO"
-    },
-    {
         "Id": "3365",
         "Name": "TAPRESAN"
     },
@@ -13536,10 +13456,6 @@
         "Name": "TARKA"
     },
     {
-        "Id": "3385",
-        "Name": "TARKA"
-    },
-    {
         "Id": "3386",
         "Name": "TARIMYL"
     },
@@ -13562,10 +13478,6 @@
     {
         "Id": "3391",
         "Name": "TARDYFERON"
-    },
-    {
-        "Id": "3392",
-        "Name": "TARCEVA"
     },
     {
         "Id": "3393",
@@ -13850,10 +13762,6 @@
     {
         "Id": "3463",
         "Name": "SENOSIDOS A-B"
-    },
-    {
-        "Id": "3464",
-        "Name": "SERC"
     },
     {
         "Id": "3465",
@@ -14528,10 +14436,6 @@
         "Name": "CALCITONINA"
     },
     {
-        "Id": "3633",
-        "Name": "CALCITONINA"
-    },
-    {
         "Id": "3634",
         "Name": "CALCION"
     },
@@ -15185,10 +15089,6 @@
     },
     {
         "Id": "3797",
-        "Name": "CAPTOPRIL"
-    },
-    {
-        "Id": "3798",
         "Name": "CAPTOPRIL"
     },
     {
@@ -16492,10 +16392,6 @@
         "Name": "COVENTROL"
     },
     {
-        "Id": "4124",
-        "Name": "COVENTROL"
-    },
-    {
         "Id": "4125",
         "Name": "COVANCE"
     },
@@ -16709,10 +16605,6 @@
     },
     {
         "Id": "4178",
-        "Name": "COLPOTROFIN"
-    },
-    {
-        "Id": "4179",
         "Name": "COLPOTROFIN"
     },
     {
@@ -17298,10 +17190,6 @@
     {
         "Id": "4325",
         "Name": "CERTICAN"
-    },
-    {
-        "Id": "4326",
-        "Name": "CETRAL"
     },
     {
         "Id": "4327",
@@ -19216,10 +19104,6 @@
         "Name": "ACLASTA"
     },
     {
-        "Id": "4805",
-        "Name": "ACLASTA"
-    },
-    {
         "Id": "4806",
         "Name": "ACITRETINA IFC"
     },
@@ -20692,10 +20576,6 @@
         "Name": "BACTRON FORTE"
     },
     {
-        "Id": "5174",
-        "Name": "BACTRON FORTE"
-    },
-    {
         "Id": "5175",
         "Name": "BARACLUDE"
     },
@@ -21165,10 +21045,6 @@
     },
     {
         "Id": "5292",
-        "Name": "ANGRIP"
-    },
-    {
-        "Id": "5293",
         "Name": "ANGRIP"
     },
     {
@@ -21989,10 +21865,6 @@
     },
     {
         "Id": "5498",
-        "Name": "FURFURIL"
-    },
-    {
-        "Id": "5499",
         "Name": "FURFURIL"
     },
     {
@@ -26280,10 +26152,6 @@
         "Name": "DEXAMETASONA"
     },
     {
-        "Id": "6571",
-        "Name": "DEXAMETASONA"
-    },
-    {
         "Id": "6572",
         "Name": "DEXAFREE"
     },
@@ -26540,10 +26408,6 @@
         "Name": "DEPO-PROVERA"
     },
     {
-        "Id": "6636",
-        "Name": "DEPO-PROGEVERA"
-    },
-    {
         "Id": "6637",
         "Name": "DEPLATT"
     },
@@ -26582,10 +26446,6 @@
     {
         "Id": "6646",
         "Name": "DENTICELSO"
-    },
-    {
-        "Id": "6647",
-        "Name": "DEPO-PROVERA"
     },
     {
         "Id": "6648",
@@ -27672,10 +27532,6 @@
         "Name": "FILMANTISEPTICO"
     },
     {
-        "Id": "6919",
-        "Name": "FEXIPS"
-    },
-    {
         "Id": "6920",
         "Name": "FEXION"
     },
@@ -27689,10 +27545,6 @@
     },
     {
         "Id": "6923",
-        "Name": "FESTAL"
-    },
-    {
-        "Id": "6924",
         "Name": "FESTAL"
     },
     {
@@ -27993,10 +27845,6 @@
     },
     {
         "Id": "6999",
-        "Name": "FERGANIC"
-    },
-    {
-        "Id": "7000",
         "Name": "FERGANIC"
     },
     {
@@ -28565,10 +28413,6 @@
     },
     {
         "Id": "7142",
-        "Name": "ESPIRONOLACTONA"
-    },
-    {
-        "Id": "7143",
         "Name": "ESPIRONOLACTONA"
     },
     {

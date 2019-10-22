@@ -83,6 +83,7 @@ namespace Farma.Web
             services.AddScoped<IWantedMedicineRepository, WantedMedicineRepository>();
             services.AddScoped<IMedicineLocationRepository, MedicineLocationRepository>();
             services.AddScoped<IPharmacyRepository, PharmacyRepository>();
+            services.AddScoped<IPartnerRepository, PartnerRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
