@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Farma.Web.Data.Entities
 {
@@ -15,5 +16,7 @@ namespace Farma.Web.Data.Entities
         public String UserId { get; set; }
 
         public User User { get; set;  }
+        
+        public ICollection<Pharmacy> Pharmacies { get; set; }
     }
 }

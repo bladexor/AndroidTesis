@@ -37,235 +37,185 @@ namespace Farma.Web.Data
 
         public async Task SeedAsync()
         {
-            
+
             await this.context.Database.EnsureCreatedAsync();
 
             var separator = Path.DirectorySeparatorChar;
-            var dirSeedPath="Data" + separator + "Seed" + separator;
+            var dirSeedPath = "Data" + separator + "Seed" + separator;
             //Nombres de Medicinas Obtenidas desde PROVITARED
             if (!this.context.Medicines.Any())
             {
                 // var filePath = Path.Combine(AppContext.BaseDirectory, "Data/Seed/Medicines.json");
-                
+
                 var filePath = dirSeedPath + "Medicines.json";
                 var medicines = JsonConvert.DeserializeObject<List<Medicine>>(File.ReadAllText(filePath));
                 context.AddRange(medicines);
                 context.SaveChanges();
             }
-            
+
             if (!this.context.States.Any())
             {
                 //Cargando estados
                 var filePath = dirSeedPath + "States.json";
                 var states = JsonConvert.DeserializeObject<List<State>>(File.ReadAllText(filePath));
                 
-                //Ciudades de Amazonas
-                filePath = dirSeedPath + "Cities" + separator+"Amazonas.json";
-               
-                var state=states.Find(x=>x.Name.Contains("Amazonas"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Anzoategui
-                filePath = dirSeedPath + "Cities" + separator+"Anzoategui.json";
-             
-                state=states.Find(x=>x.Name.Contains("Anzoátegui"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Apure
-                filePath = dirSeedPath + "Cities" + separator + "Apure.json";
-               
-                state = states.Find(x => x.Name.Contains("Apure"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Aragua
-                filePath = dirSeedPath + "Cities" + separator + "Aragua.json";
-                
-                state = states.Find(x => x.Name.Contains("Aragua"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Barinas
-                filePath = dirSeedPath + "Cities" + separator + "Barinas.json";
-                
-                state = states.Find(x => x.Name.Contains("Barinas"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Bolivar
-                filePath = dirSeedPath + "Cities" + separator + "Bolivar.json";
-               
-                state = states.Find(x => x.Name.Contains("Bolívar"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Carabobo
-                filePath = dirSeedPath + "Cities" + separator + "Carabobo.json";
-       
-                state = states.Find(x => x.Name.Contains("Carabobo"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Cojedes
-                filePath = dirSeedPath + "Cities" + separator + "Cojedes.json";
-                
-                state = states.Find(x => x.Name.Contains("Cojedes"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Delta Amacuro
-                filePath = dirSeedPath + "Cities" + separator + "Delta Amacuro.json";
-               
-                state = states.Find(x => x.Name.Contains("Delta Amacuro"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Distrito Capital
-                filePath = dirSeedPath + "Cities" + separator + "Distrito Capital.json";
-
-                state = states.Find(x => x.Name.Contains("Distrito Capital"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Falcon
-                filePath = dirSeedPath + "Cities" + separator + "Falcon.json";
-                
-                state = states.Find(x => x.Name.Contains("Falcón"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Guarico
-                filePath = dirSeedPath + "Cities" + separator + "Guarico.json";
-               
-                state = states.Find(x => x.Name.Contains("Guarico"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Lara
-                filePath = dirSeedPath + "Cities" + separator + "Lara.json";
-               
-                state = states.Find(x => x.Name.Contains("Lara"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Merida
-                filePath = dirSeedPath + "Cities" + separator + "Merida.json";
-               
-                state = states.Find(x => x.Name.Contains("Mérida"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Miranda
-                filePath = dirSeedPath + "Cities" + separator + "Miranda.json";
-               
-                state = states.Find(x => x.Name.Contains("Miranda"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                
-                //Ciudades de Monagas
-                filePath = dirSeedPath + "Cities" + separator + "Monagas.json";
-               
-                state = states.Find(x => x.Name.Contains("Monagas"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Nueva Esparta
-                filePath = dirSeedPath + "Cities" + separator + "Nueva Esparta.json";
-               
-                state = states.Find(x => x.Name.Contains("Nueva Esparta"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                
-                //Ciudades de Portuguesa
-                filePath = dirSeedPath + "Cities" + separator + "Portuguesa.json";
-               
-                state = states.Find(x => x.Name.Contains("Portuguesa"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Sucre
-                filePath = dirSeedPath + "Cities" + separator + "Sucre.json";
+                //Ciudades
+                filePath = dirSeedPath + "Cities.json";
+                var cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
               
-                state = states.Find(x => x.Name.Contains("Sucre"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Tachira
-                filePath = dirSeedPath + "Cities" + separator + "Tachira.json";
-              
-                state = states.Find(x => x.Name.Contains("Táchira"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Trujillo
-                filePath = dirSeedPath + "Cities" + separator + "Trujillo.json";
-              
-                state = states.Find(x => x.Name.Contains("Trujillo"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Vargas
-                filePath = dirSeedPath + "Cities" + separator + "Vargas.json";
-              
-                state = states.Find(x => x.Name.Contains("Vargas"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-                
-                //Ciudades de Yaracuy
-                filePath = dirSeedPath + "Cities" + separator + "Yaracuy.json";
-               
-                state = states.Find(x => x.Name.Contains("Yaracuy"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
-                //Ciudades de Zulia
-                filePath = dirSeedPath + "Cities" + separator + "Zulia.json";
-               
-                state = states.Find(x => x.Name.Contains("Zulia"));
-                state.Cities = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(filePath));
-
                 context.AddRange(states);
+                context.AddRange(cities);
                 await context.SaveChangesAsync();
-            
+
             }
-            
+
             await this.userHelper.CheckRoleAsync("Admin");
             await this.userHelper.CheckRoleAsync("Customer");
             await this.userHelper.CheckRoleAsync("Partner");
-            
-                var admin1 = new User
+
+
+            //Administradores Web
+            var admin1 = new User
+            {
+                FirstName = "Bladimir",
+                LastName = "Velásquez",
+                Email = "bladi135@gmail.com",
+                UserName = "bladi135@gmail.com",
+                PhoneNumber = "04261820882",
+                Address = "Calle 8, Boyaca 3, Barcelona, Edo. Anzoategui",
+                City = this.context.Cities.FirstOrDefault()
+            };
+
+            addAUser(admin1, "123456", "Admin");
+
+
+            var admin2 = new User
+            {
+                FirstName = "Miguel",
+                LastName = "Rojas",
+                Email = "miguel@gmail.com",
+                UserName = "miguel@gmail.com",
+                PhoneNumber = "04166828016",
+                Address = "Boyaca 5, detras del Liceo ETA, Barcelona, Edo. Anzoategui",
+                City = this.context.Cities.FirstOrDefault()
+            };
+
+            addAUser(admin2, "123456", "Admin");
+
+            //Clientes Farma.App
+            var customer1 = new User
+            {
+                FirstName = "Yeniret",
+                LastName = "Yeguez",
+                Email = "yeni@gmail.com",
+                UserName = "yeni@gmail.com",
+                PhoneNumber = "04121907221",
+                Address = "Calle Sucre, Santa Fe, Edo.Sucre",
+                City = this.context.Cities.FirstOrDefault()
+            };
+
+            addAUser(customer1, "123456", "Customer");
+
+            var customer2 = new User
+            {
+                FirstName = "Leila",
+                LastName = "Guzman",
+                Email = "leila@gmail.com",
+                UserName = "leila@gmail.com",
+                PhoneNumber = "04248265399",
+                Address = "Calle 8, Boyaca 3, Barcelona, Anzoategui",
+                City = this.context.Cities.FirstOrDefault()
+            };
+
+            addAUser(customer2, "123456", "Customer");
+
+
+            //Usuarios de Socios (Farmacias)
+            var userpartner1 = new User
+            {
+                FirstName = "Farmatodo",
+                Email = "farmatodo@gmail.com",
+                UserName = "farmatodo@gmail.com",
+                PhoneNumber = "04xxxxxxxxx",
+                City = this.context.Cities.FirstOrDefault()
+            };
+            addAUser(userpartner1, "123456", "Partner");
+
+            var userpartner2 = new User
+            {
+                FirstName = "Locatel",
+                Email = "locatel@gmail.com",
+                UserName = "locatel@gmail.com",
+                PhoneNumber = "04xxxxxxxxx",
+                City = this.context.Cities.FirstOrDefault()
+            };
+
+            addAUser(userpartner2, "123456", "Partner");
+
+            var userpartner3 = new User
+            {
+                FirstName = "Fundafarmacia",
+                Email = "fundafarmacia@gmail.com",
+                UserName = "fundafarmacia@gmail.com",
+                PhoneNumber = "04xxxxxxxxx",
+                City = this.context.Cities.FirstOrDefault()
+            };
+
+            addAUser(userpartner3, "123456", "Partner");
+
+            var userpartner4 = new User
+            {
+                FirstName = "Farmacia SAAS",
+                Email = "farmacia.saas@gmail.com",
+                UserName = "farmacia.saas@gmail.com",
+                PhoneNumber = "04xxxxxxxxx",
+                City = this.context.Cities.FirstOrDefault()
+            };
+
+            addAUser(userpartner4, "123456", "Partner");
+
+            //Detalles de Partners
+            if (!this.context.Partners.Any())
+            {
+                var p1 = new Partner
                 {
-                    FirstName = "Bladimir",
-                    LastName = "Velásquez",
-                    Email = "bladi135@gmail.com",
-                    UserName = "bladi135@gmail.com",
-                    PhoneNumber = "04261820882",
-                    Address = "Calle 8, Boyaca 3, Barcelona, Edo. Anzoategui",
-                    City = this.context.Cities.FirstOrDefault()
+                    Name = "Farmatodo Venezuela",
+                    Website = "https://www.farmatodo.com.ve/",
+                    User = userpartner1
                 };
 
-                addAUser(admin1,"123456","Admin");
 
-                
-                var admin2 = new User
+                this.context.Partners.Add(p1);
+
+                var p2 = new Partner
                 {
-                    FirstName = "Miguel",
-                    LastName = "Rojas",
-                    Email = "miguel@gmail.com",
-                    UserName = "miguel@gmail.com",
-                    PhoneNumber = "04166828016",
-                    Address = "Boyaca 5, detras del Liceo ETA, Barcelona, Edo. Anzoategui",
-                    City = this.context.Cities.FirstOrDefault()
+                    Name = "Locatel Venezuela",
+                    Website = "https://www.locatel.com.ve/",
+                    User = userpartner2
                 };
 
-                addAUser(admin2,"123456","Admin");
-            
-                var customer1 = new User
+                this.context.Partners.Add(p2);
+
+                var p3 = new Partner
                 {
-                    FirstName = "Yeniret",
-                    LastName = "Yeguez",
-                    Email = "yeni@gmail.com",
-                    UserName = "yeni@gmail.com",
-                    PhoneNumber = "04121907221",
-                    Address = "Calle Sucre, Santa Fe, Edo.Sucre",
-                    City = this.context.Cities.FirstOrDefault()
+                    Name = "FundaFarmacia",
+                    Website = "http://www.fundafarmacia.com/",
+                    User = userpartner3
                 };
 
-                addAUser(customer1,"123456","Customer");
-                
-                var customer2 = new User
+                this.context.Partners.Add(p3);
+
+                var p4 = new Partner
                 {
-                    FirstName = "Leila",
-                    LastName = "Guzman",
-                    Email = "leila@gmail.com",
-                    UserName = "leila@gmail.com",
-                    PhoneNumber = "04248265399",
-                    Address = "Calle 8, Boyaca 3, Barcelona, Anzoategui",
-                    City = this.context.Cities.FirstOrDefault()
+                    Name = "Farmacias SAAS",
+                    Website = "http://www.farmaciasaas.com/",
+                    User = userpartner4
                 };
 
-                addAUser(customer2,"123456","Customer");
+                this.context.Partners.Add(p4);
+
+                this.context.SaveChanges();
+            }
         }
 
         private void AddState(string name)
