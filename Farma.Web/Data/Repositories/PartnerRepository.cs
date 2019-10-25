@@ -13,13 +13,17 @@ namespace Farma.Web.Data.Repositories
             this.context = context;
         }
 
+        /*   public Partner GetPartnerByUserId(string uid)
+           {
+               var d = this.context.Partners
+                              /// .Include(m => m.User)
+                               .Where(x => x.UserId == uid);
+               
+                           return d.First();
+           }*/
         public Partner GetPartnerByUserId(string uid)
         {
-            var d = this.context.Partners
-                           /// .Include(m => m.User)
-                            .Where(x => x.UserId == uid);
-            
-                        return d.First();
+            throw new System.NotImplementedException();
         }
     }
 }

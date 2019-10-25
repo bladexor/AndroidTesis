@@ -750,6 +750,8 @@
 
   <ItemGroup>
     <Folder Include="Data\Seed\Pharmacies" />
+    <Folder Include="wwwroot\images\partners" />
+    <Folder Include="wwwroot\images\products" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>

@@ -25,6 +25,7 @@ namespace Farma.Web.Data.Entities
         {
             get; set;
         }
-        
+
+        public int PartnerId { get; set; }
     }
 }

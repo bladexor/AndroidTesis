@@ -13,9 +13,9 @@ namespace Farma.Web.Data.Entities
         
         public String Logo { get; set; }
         
-        public String UserId { get; set; }
+    //    public String UserId { get; set; }
 
-        public User User { get; set;  }
+    //    public User User { get; set;  }
         
         public ICollection<Pharmacy> Pharmacies { get; set; }
     }

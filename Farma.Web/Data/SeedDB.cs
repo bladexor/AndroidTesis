@@ -130,7 +130,7 @@ namespace Farma.Web.Data
             addAUser(customer2, "123456", "Customer");
 
 
-            //Usuarios de Socios (Farmacias)
+           /* Usuarios de Socios (Farmacias)
             var userpartner1 = new User
             {
                 FirstName = "Farmatodo",
@@ -173,7 +173,7 @@ namespace Farma.Web.Data
             };
 
             addAUser(userpartner4, "123456", "Partner");
-
+         */
             //Detalles de Partners
             if (!this.context.Partners.Any())
             {
@@ -181,7 +181,7 @@ namespace Farma.Web.Data
                 {
                     Name = "Farmatodo Venezuela",
                     Website = "https://www.farmatodo.com.ve/",
-                    User = userpartner1
+                   // User = userpartner1
                 };
 
 
@@ -191,7 +191,7 @@ namespace Farma.Web.Data
                 {
                     Name = "Locatel Venezuela",
                     Website = "https://www.locatel.com.ve/",
-                    User = userpartner2
+                   // User = userpartner2
                 };
 
                 this.context.Partners.Add(p2);
@@ -200,7 +200,7 @@ namespace Farma.Web.Data
                 {
                     Name = "FundaFarmacia",
                     Website = "http://www.fundafarmacia.com/",
-                    User = userpartner3
+                    //User = userpartner3
                 };
 
                 this.context.Partners.Add(p3);
@@ -209,7 +209,7 @@ namespace Farma.Web.Data
                 {
                     Name = "Farmacias SAAS",
                     Website = "http://www.farmaciasaas.com/",
-                    User = userpartner4
+                    //User = userpartner4
                 };
 
                 this.context.Partners.Add(p4);
