@@ -24,6 +24,8 @@ namespace Farma.Web.Data
         public DbSet<Pharmacy> Pharmacies { get; set; }
         
         public DbSet<Partner> Partners { get; set; }
+        
+        public DbSet<Product> Products { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {

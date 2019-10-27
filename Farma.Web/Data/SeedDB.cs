@@ -4,6 +4,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using Farma.Web.Models.Helpers.Farmatodo;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Internal;
 using Microsoft.DotNet.PlatformAbstractions;
 using Microsoft.Extensions.Hosting;
@@ -40,6 +41,132 @@ namespace Farma.Web.Data
 
             await this.context.Database.EnsureCreatedAsync();
 
+            
+            var helperF=new FarmatodoHelper();
+            
+            var resultado=await helperF.BuscarProducto("atamel");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("captopril");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("allegra");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("ketoprofeno");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("diclofenac");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("calcibon");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("ciprofloxacina");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+
+            resultado=await helperF.BuscarProducto("cefadroxilo");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("omeprazol");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            resultado=await helperF.BuscarProducto("prospan");
+
+            foreach (var hit in  resultado.hits)
+            {
+                this.context.Products.Add(new Product
+                {
+                    Description = hit.description,
+                    ImageUrl = hit.mediaImageUrl,
+                    PartnerName = "Farmatodo"
+                });
+            }
+            
+            this.context.SaveChanges();
+          
+            
             var separator = Path.DirectorySeparatorChar;
             var dirSeedPath = "Data" + separator + "Seed" + separator;
             //Nombres de Medicinas Obtenidas desde PROVITARED

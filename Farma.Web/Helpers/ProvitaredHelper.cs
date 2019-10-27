@@ -25,7 +25,8 @@ namespace Farma.Web.Helpers
                 var result = await response.Content.ReadAsStringAsync();
 
                 var list = JsonConvert.DeserializeObject<List<Farma.Web.Models.MedicineViewModel>>(result);
-
+                
+                
                 return list;
 
             }
