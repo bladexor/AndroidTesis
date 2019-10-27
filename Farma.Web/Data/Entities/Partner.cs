@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Farma.Web.Data.Entities
 {
@@ -17,6 +18,10 @@ namespace Farma.Web.Data.Entities
 
     //    public User User { get; set;  }
         
+    [Display(Name = "# Pharmacies")]
+    public int NumberPharmacies { get { return this.Pharmacies == null ? 0 : this.Pharmacies.Count; } }
         public ICollection<Pharmacy> Pharmacies { get; set; }
+        
+       // public ICollection<Product> Products { get; set; }
     }
 }

@@ -19,6 +19,12 @@ namespace Farma.Web.Data.Entities
         public string PhoneNumber { get; set; }
         
         public int StateId { get; set; }
+        
+        public State State
+        {
+            get; set;
+        }
+        
         public int CityId { get; set; }
         
         public City City

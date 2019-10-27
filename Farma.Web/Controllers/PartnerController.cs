@@ -22,8 +22,8 @@ namespace Farma.Web.Controllers
         
         public async Task<IActionResult> Index()
         {
-            var partners =  this.partnerRepository.GetAll().ToList()
-               // .Include(c=>c.City).ToList()
+            var partners =  this.partnerRepository.GetAll()
+                .Include(c=>c.Pharmacies).ToList()
                 .OrderBy(c=>c.Name);
 
             return this.View(partners);
@@ -116,8 +116,11 @@ namespace Farma.Web.Controllers
                 {
                     var path = pvm.Logo;
 
+                    
                     if (pvm.ImageFile != null && pvm.ImageFile.Length > 0)
                     {
+                        DeletePartnerImage(path); //Elimina la imagen anterior
+                        
                         var guid = Guid.NewGuid().ToString();
                         var file = $"{guid}.jpg";
 
@@ -172,17 +175,54 @@ namespace Farma.Web.Controllers
                 return NotFound();
             }
 
-            var pharmacy = await this.partnerRepository.GetByIdAsync(id.Value);
-            if (pharmacy == null)
+            var partner = await this.partnerRepository.GetByIdAsync(id.Value);
+            if (partner == null)
             {
                 return NotFound();
             }
 
+           DeletePartnerImage(partner.Logo);
+           
             // return View(state);
-            await this.partnerRepository.DeleteAsync(pharmacy);
+            await this.partnerRepository.DeleteAsync(partner);
             return RedirectToAction(nameof(Index));
         }
+
+
+        private void DeletePartnerImage(string urlLogo)
+        {
+            if (urlLogo != null)
+            {
+                var path = Path.Combine(
+                               Directory.GetCurrentDirectory(), "wwwroot//") + urlLogo.Substring((2));
+               
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+                
+            }
+
+
+        }
         
-        
+        // GET: Partner/Pharmacies/5
+        public async Task<IActionResult> Pharmacies(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var partner = await partnerRepository.GetPartnerPharmaciesAsync(id.Value);
+            if (partner == null)
+            {
+                return NotFound();
+            }
+
+            return View(partner);
+        }
     }
+        
+    
 }

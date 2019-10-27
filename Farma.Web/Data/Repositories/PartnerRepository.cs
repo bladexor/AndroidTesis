@@ -1,6 +1,8 @@
 using System.Linq;
+using System.Threading.Tasks;
 using Farma.Web.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Xml;
 
 namespace Farma.Web.Data.Repositories
 {
@@ -24,6 +26,17 @@ namespace Farma.Web.Data.Repositories
         public Partner GetPartnerByUserId(string uid)
         {
             throw new System.NotImplementedException();
+        }
+        
+        public async Task<Partner> GetPartnerPharmaciesAsync(int id)
+        {
+            return await this.context.Partners
+                .Include(c => c.Pharmacies)
+                    .ThenInclude(b=>b.State)
+                .Include(c => c.Pharmacies)
+                    .ThenInclude(d=>d.City)
+                .Where(c => c.Id == id)
+                .FirstOrDefaultAsync();
         }
     }
 }

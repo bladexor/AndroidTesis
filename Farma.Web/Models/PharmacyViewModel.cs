@@ -10,6 +10,8 @@ namespace Farma.Web.Models
 
     public class PharmacyViewModel
     {
+        public int Id { get; set;  }
+
         [Required]
         [Display(Name = "Description")]
         public string Description { get; set; }
@@ -36,6 +38,8 @@ namespace Farma.Web.Models
         public string Latitude { get; set; }
         
         public string Longitude { get; set; }
+
+        public int PartnerId { get; set; }
     }
 
 }
