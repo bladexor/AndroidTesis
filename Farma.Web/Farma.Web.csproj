@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Seed\Pharmacies\**" />
+    <Content Remove="Data\Seed\Pharmacies\**" />
+    <EmbeddedResource Remove="Data\Seed\Pharmacies\**" />
+    <None Remove="Data\Seed\Pharmacies\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
     <Content Include="node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css" />
@@ -749,7 +756,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Seed\Pharmacies" />
     <Folder Include="wwwroot\images\partners" />
     <Folder Include="wwwroot\images\products" />
   </ItemGroup>

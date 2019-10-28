@@ -41,134 +41,38 @@ namespace Farma.Web.Data
 
             await this.context.Database.EnsureCreatedAsync();
 
-            
-            var helperF=new FarmatodoHelper();
-            
-            var resultado=await helperF.BuscarProducto("atamel");
+            //var productos = new List<string>{
+            //    "atamel","allegra",
+            //    "captopril","calcibon", "ciprofloxacina","cefadroxilo",
+            //    "diclofenac",
+            //    "ketoprofeno",
+            //    "omeprazol",
+            //    "prospan"
+            //};
 
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("captopril");
+            //var helperF=new FarmatodoHelper();
 
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("allegra");
+            //foreach (var item in productos)
+            //{
+            //    var resultado = await helperF.BuscarProducto(item);
 
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("ketoprofeno");
+            //    foreach (var hit in resultado.hits)
+            //    {
+            //        this.context.Products.Add(new Product
+            //        {
+            //            Description = hit.description,
+            //            ImageUrl = hit.mediaImageUrl,
+            //            PartnerName = "Farmatodo"
+            //        });
+            //    }
+            //}
 
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("diclofenac");
+            //this.context.SaveChanges();
 
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("calcibon");
-
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("ciprofloxacina");
-
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-
-            resultado=await helperF.BuscarProducto("cefadroxilo");
-
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("omeprazol");
-
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            resultado=await helperF.BuscarProducto("prospan");
-
-            foreach (var hit in  resultado.hits)
-            {
-                this.context.Products.Add(new Product
-                {
-                    Description = hit.description,
-                    ImageUrl = hit.mediaImageUrl,
-                    PartnerName = "Farmatodo"
-                });
-            }
-            
-            this.context.SaveChanges();
-          
-            
+      
             var separator = Path.DirectorySeparatorChar;
             var dirSeedPath = "Data" + separator + "Seed" + separator;
+           
             //Nombres de Medicinas Obtenidas desde PROVITARED
             if (!this.context.Medicines.Any())
             {
@@ -195,6 +99,51 @@ namespace Farma.Web.Data
                 await context.SaveChangesAsync();
 
             }
+
+
+            //---------------------------------------------------------
+            //  Imagenes Precargadas de los Partners (Farmacias)
+            //----------------------------------------------------------
+            var dirSource = Path.Combine(Directory.GetCurrentDirectory(),
+                                        "Data//Seed//images//");
+
+            var dirDestiny = Path.Combine(Directory.GetCurrentDirectory(),
+                                        "wwwroot//images//partners//");
+
+            if (!Directory.Exists(dirDestiny))
+            {
+
+                Directory.CreateDirectory(dirDestiny);
+
+                var images = Directory.EnumerateFiles(dirSource);
+
+                foreach (var filepath in images)
+                {
+                    File.Copy(filepath, dirDestiny + Path.GetFileName(filepath));
+                }
+            }
+            //-------------------------------------------------------------
+
+            //Detalles de Partners
+            if (!this.context.Partners.Any())
+            {
+                var filePath = dirSeedPath + "Partners.json";
+                var partners = JsonConvert.DeserializeObject<List<Partner>>(File.ReadAllText(filePath));
+                context.AddRange(partners);
+                context.SaveChanges();
+
+
+            }
+
+            //Detalles de Pharmacies
+            if (!this.context.Pharmacies.Any())
+            {
+                var filePath = dirSeedPath + "Pharmacies.json";
+                var pharmacies = JsonConvert.DeserializeObject<List<Pharmacy>>(File.ReadAllText(filePath));
+                context.AddRange(pharmacies);
+                context.SaveChanges();
+            }
+
 
             await this.userHelper.CheckRoleAsync("Admin");
             await this.userHelper.CheckRoleAsync("Customer");
@@ -257,92 +206,54 @@ namespace Farma.Web.Data
             addAUser(customer2, "123456", "Customer");
 
 
-           /* Usuarios de Socios (Farmacias)
-            var userpartner1 = new User
-            {
-                FirstName = "Farmatodo",
-                Email = "farmatodo@gmail.com",
-                UserName = "farmatodo@gmail.com",
-                PhoneNumber = "04xxxxxxxxx",
-                City = this.context.Cities.FirstOrDefault()
-            };
-            addAUser(userpartner1, "123456", "Partner");
+            /* Usuarios de Socios (Farmacias)
+             var userpartner1 = new User
+             {
+                 FirstName = "Farmatodo",
+                 Email = "farmatodo@gmail.com",
+                 UserName = "farmatodo@gmail.com",
+                 PhoneNumber = "04xxxxxxxxx",
+                 City = this.context.Cities.FirstOrDefault()
+             };
+             addAUser(userpartner1, "123456", "Partner");
 
-            var userpartner2 = new User
-            {
-                FirstName = "Locatel",
-                Email = "locatel@gmail.com",
-                UserName = "locatel@gmail.com",
-                PhoneNumber = "04xxxxxxxxx",
-                City = this.context.Cities.FirstOrDefault()
-            };
+             var userpartner2 = new User
+             {
+                 FirstName = "Locatel",
+                 Email = "locatel@gmail.com",
+                 UserName = "locatel@gmail.com",
+                 PhoneNumber = "04xxxxxxxxx",
+                 City = this.context.Cities.FirstOrDefault()
+             };
 
-            addAUser(userpartner2, "123456", "Partner");
+             addAUser(userpartner2, "123456", "Partner");
 
-            var userpartner3 = new User
-            {
-                FirstName = "Fundafarmacia",
-                Email = "fundafarmacia@gmail.com",
-                UserName = "fundafarmacia@gmail.com",
-                PhoneNumber = "04xxxxxxxxx",
-                City = this.context.Cities.FirstOrDefault()
-            };
+             var userpartner3 = new User
+             {
+                 FirstName = "Fundafarmacia",
+                 Email = "fundafarmacia@gmail.com",
+                 UserName = "fundafarmacia@gmail.com",
+                 PhoneNumber = "04xxxxxxxxx",
+                 City = this.context.Cities.FirstOrDefault()
+             };
 
-            addAUser(userpartner3, "123456", "Partner");
+             addAUser(userpartner3, "123456", "Partner");
 
-            var userpartner4 = new User
-            {
-                FirstName = "Farmacia SAAS",
-                Email = "farmacia.saas@gmail.com",
-                UserName = "farmacia.saas@gmail.com",
-                PhoneNumber = "04xxxxxxxxx",
-                City = this.context.Cities.FirstOrDefault()
-            };
+             var userpartner4 = new User
+             {
+                 FirstName = "Farmacia SAAS",
+                 Email = "farmacia.saas@gmail.com",
+                 UserName = "farmacia.saas@gmail.com",
+                 PhoneNumber = "04xxxxxxxxx",
+                 City = this.context.Cities.FirstOrDefault()
+             };
 
-            addAUser(userpartner4, "123456", "Partner");
-         */
-            //Detalles de Partners
-            if (!this.context.Partners.Any())
-            {
-                var p1 = new Partner
-                {
-                    Name = "Farmatodo Venezuela",
-                    Website = "https://www.farmatodo.com.ve/",
-                   // User = userpartner1
-                };
+             addAUser(userpartner4, "123456", "Partner");
+          */
+
+          
 
 
-                this.context.Partners.Add(p1);
-
-                var p2 = new Partner
-                {
-                    Name = "Locatel Venezuela",
-                    Website = "https://www.locatel.com.ve/",
-                   // User = userpartner2
-                };
-
-                this.context.Partners.Add(p2);
-
-                var p3 = new Partner
-                {
-                    Name = "FundaFarmacia",
-                    Website = "http://www.fundafarmacia.com/",
-                    //User = userpartner3
-                };
-
-                this.context.Partners.Add(p3);
-
-                var p4 = new Partner
-                {
-                    Name = "Farmacias SAAS",
-                    Website = "http://www.farmaciasaas.com/",
-                    //User = userpartner4
-                };
-
-                this.context.Partners.Add(p4);
-
-                this.context.SaveChanges();
-            }
         }
 
         private void AddState(string name)
