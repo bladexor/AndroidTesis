@@ -6,9 +6,9 @@
         "Id": "2",
         "Latitude": "8.893191",
         "Longitude": "-64.239657",
+        "PartnerId": "2",
         "PhoneNumber": "",
-        "StateId": "2",
-        "PartnerId":"2"
+        "StateId": "2"
     },
     {
         "Address": "Av. Daniel Camejo Octavio, Centro Comercial Plaza Mayor, Edificio 3, Local PB-2. Lecherí­as, estado Anzoátegui.",
@@ -17,9 +17,9 @@
         "Id": "3",
         "Latitude": "10.180749",
         "Longitude": "-64.682452",
+        "PartnerId": "2",
         "PhoneNumber": "",
-        "StateId": "2",
-        "PartnerId":"2"
+        "StateId": "2"
     },
     {
         "Address": "Centro Comercial Regina Planta Baja, Avenida Municipal, Puerto La Cruz, Estado Anzoátegui",
@@ -28,53 +28,53 @@
         "Id": "4",
         "Latitude": "10.210584",
         "Longitude": "-64.632565",
+        "PartnerId": "2",
         "PhoneNumber": "",
-        "StateId": "2",
-        "PartnerId":"2"
+        "StateId": "2"
     },
     {
         "Address": "Av. Ppal Tronconal V, dentro del Ambulatorio de Boyacá V, PB, a una cuadra del liceo La Eta. Barcelona.",
         "CityId": "1597",
         "Description": "Fundafarmacia Barcelona",
         "Id": "5",
-        "Latitude": "",
-        "Longitude": "",
+        "Latitude": "10.170173",
+        "Longitude": "-64.673056",
+        "PartnerId": "3",
         "PhoneNumber": "(0281) 286.30.90",
-        "StateId": "2",
-        "PartnerId":"3"
+        "StateId": "2"
     },
     {
         "Address": "Av. 5 de Julio, frente a Policlínica Puerto La Cruz, diagonal a la nueva parada de Bus Transporte Rápido “El Pénsil”,  casco central, Puerto La Cruz.",
         "CityId": "1628",
         "Description": "Fundafarmacia Puerto La Cruz",
         "Id": "6",
-        "Latitude": "",
-        "Longitude": "",
+        "Latitude": "10.224743",
+        "Longitude": "-64.632330",
+        "PartnerId": "3",
         "PhoneNumber": "(0281) 266.06.90",
-        "StateId": "2",
-        "PartnerId":"3"
+        "StateId": "2"
     },
     {
         "Address": "Av. Principal Boyacá I , al lado de oficina Eleoriente Barcelona, Anzoátegui.",
         "CityId": "1597",
         "Description": "SAAS Boyaca",
         "Id": "7",
-        "Latitude": "",
-        "Longitude": "",
+        "Latitude": "10.158117",
+        "Longitude": "-64.680959",
+        "PartnerId": "4",
         "PhoneNumber": "0281 - 2711330",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "Av. Country Club, cruce con calle San Carlos , C.C. La Botica Barcelona, Anzoátegui.",
         "CityId": "1597",
         "Description": "SAAS La Botica / Barcelona",
         "Id": "8",
-        "Latitude": "",
-        "Longitude": "",
+        "Latitude": "10.148064",
+        "Longitude": "-64.687138",
+        "PartnerId": "4",
         "PhoneNumber": "0281 - 2761990",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "Av. Bolívar, Edf. Candelaria # 126-A Cantaura, Anzoátegui.",
@@ -83,9 +83,9 @@
         "Id": "9",
         "Latitude": "",
         "Longitude": "",
+        "PartnerId": "4",
         "PhoneNumber": "0282 - 4551109",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "Av. Francisco de Miranda, entre calle 18 y 19 Sur. El Tigre, Anzoátegui.",
@@ -94,9 +94,9 @@
         "Id": "10",
         "Latitude": "",
         "Longitude": "",
+        "PartnerId": "4",
         "PhoneNumber": "0283 - 2317105",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "Calle Buenos Aires # 3, sector casco viejo. El Tigre, Anzoátegui.",
@@ -105,31 +105,31 @@
         "Id": "11",
         "Latitude": "",
         "Longitude": "",
+        "PartnerId": "4",
         "PhoneNumber": "0283 - 2358414",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "Av. Intercomunal, sector Las Garzas.Estación de Servicio BP. Frente al IUTIRLA. Lecherías, Anzoátegui.",
         "CityId": "1577",
         "Description": "SAAS Autofarmacia Las Garzas",
         "Id": "12",
-        "Latitude": "",
-        "Longitude": "",
+        "Latitude": "10.180658",
+        "Longitude": "-64.670370",
+        "PartnerId": "4",
         "PhoneNumber": "0281 - 2860593",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "Av. Bolívar cruce con Calle Los Almendrones CC Casa Real PB Local 2 Lecherías, Anzoátegui.",
         "CityId": "1577",
         "Description": "SAAS La Botica del Morro I",
         "Id": "13",
-        "Latitude": "",
-        "Longitude": "",
+        "Latitude": "10.191910",
+        "Longitude": "-64.693234",
+        "PartnerId": "4",
         "PhoneNumber": "0281 - 2877624",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "Calle Libertad Edif. 78 Piso PB Local 78 Sector Centro. Puerto la Cruz, Anzoátegui.",
@@ -138,9 +138,9 @@
         "Id": "14",
         "Latitude": "",
         "Longitude": "",
+        "PartnerId": "4",
         "PhoneNumber": "0281-2653923",
-        "StateId": "2",
-        "PartnerId":"4"
+        "StateId": "2"
     },
     {
         "Address": "AV MIRANDA No 2-64 PLANTA BAJA",
@@ -149,9 +149,9 @@
         "Id": "15",
         "Latitude": "9.4316",
         "Longitude": "-64.48",
+        "PartnerId": "1",
         "PhoneNumber": "0800-327628636",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "AV JOSE ANTONIO ANZOATEGUI AL LADO DE MCDONALDS Y FRENTE AL UNICASA",
@@ -160,9 +160,9 @@
         "Id": "16",
         "Latitude": "9.433",
         "Longitude": "-64.4659",
+        "PartnerId": "1",
         "PhoneNumber": "0282-4256091",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "AV INTERCOMUNAL EL TIGRE CC EL ROBLE LOCALES 1 Y2 SAN JOSE DE GUANIPA",
@@ -171,9 +171,9 @@
         "Id": "17",
         "Latitude": "8.8956",
         "Longitude": "-64.1961",
+        "PartnerId": "1",
         "PhoneNumber": "0800-327628636",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "AV WINSTON CHURCHILL CON CALLE 16 SUR URB FRANCISCO DE MIRANDA",
@@ -182,9 +182,9 @@
         "Id": "18",
         "Latitude": "8.8928",
         "Longitude": "-64.2398",
+        "PartnerId": "1",
         "PhoneNumber": "",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "CALLE MARINO CON AV LIC. URBANEJA EL PENONAL.",
@@ -193,9 +193,9 @@
         "Id": "19",
         "Latitude": "10.1783",
         "Longitude": "-64.6891",
+        "PartnerId": "1",
         "PhoneNumber": "0281-2860323",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "AV DIEGO BAUTISTA URBANEJA CON CARRERA 6 ",
@@ -204,9 +204,9 @@
         "Id": "20",
         "Latitude": "10.1989",
         "Longitude": "-64.6929",
+        "PartnerId": "1",
         "PhoneNumber": "0281-2818077",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "PASEO COLON No 17 ",
@@ -215,9 +215,9 @@
         "Id": "21",
         "Latitude": "10.225",
         "Longitude": "-64.6345",
+        "PartnerId": "1",
         "PhoneNumber": "0281-2656364",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "CALLE LA LIBERTAD. LOCAL49-A ",
@@ -226,9 +226,9 @@
         "Id": "22",
         "Latitude": "10.2218",
         "Longitude": "-64.6358",
+        "PartnerId": "1",
         "PhoneNumber": "0281-2698090 ",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
     },
     {
         "Address": "PUERTO LA CRUZ",
@@ -237,8 +237,85 @@
         "Id": "23",
         "Latitude": "10.206",
         "Longitude": "-64.6515",
+        "PartnerId": "1",
         "PhoneNumber": "0800-327628636",
-        "StateId": "2",
-        "PartnerId":"1"
+        "StateId": "2"
+    },
+    {
+        "Address": "Av. Francisco De Miranda, Urb. Campo Rojo, al lado del Mercado Municipal.",
+        "CityId": "1593",
+        "Description": "Farmacia Anaco",
+        "Id": "24",
+        "Latitude": "",
+        "Longitude": "",
+        "PartnerId": "5",
+        "PhoneNumber": "",
+        "StateId": "2"
+    },
+    {
+        "Address": "Avenida 5 de Julio Frente al antiguo Liceo Cagigal Barcelona.",
+        "CityId": "1597",
+        "Description": "Farmacia Caracas (24 horas)",
+        "Id": "25",
+        "Latitude": "",
+        "Longitude": "",
+        "PartnerId": "5",
+        "PhoneNumber": "0281-275.98.12",
+        "StateId": "2"
+    },
+    {
+        "Address": "Avenida Ejército prolongación Avenida 5 de Julio Centro Comercial Central Madeirense.",
+        "CityId": "1597",
+        "Description": "Farmacia Nororiental",
+        "Id": "26",
+        "Latitude": "",
+        "Longitude": "",
+        "PartnerId": "5",
+        "PhoneNumber": "0281-274.01.37/03.83",
+        "StateId": "2"
+    },
+    {
+        "Address": "Avenida Winstong Churchill. Centro Comercial Petrucci. Local  16",
+        "CityId": "1572",
+        "Description": "Farmacia Cádiz",
+        "Id": "27",
+        "Latitude": "",
+        "Longitude": "",
+        "PartnerId": "5",
+        "PhoneNumber": "0283-241.12.83/62.22",
+        "StateId": "2"
+    },
+    {
+        "Address": "Avenida España, sector Luchador, frente al antiguo Terminal El Tigre.",
+        "CityId": "1572",
+        "Description": "Farmacia Plaza",
+        "Id": "28",
+        "Latitude": "",
+        "Longitude": "",
+        "PartnerId": "5",
+        "PhoneNumber": "0283-2350359/2316442",
+        "StateId": "2"
+    },
+    {
+        "Address": "Calle Sucre, Edificio Bucaral. Piso  PB",
+        "CityId": "1628",
+        "Description": "Farmacia Sucre (24 horas)",
+        "Id": "29",
+        "Latitude": "",
+        "Longitude": "",
+        "PartnerId": "5",
+        "PhoneNumber": "0281-2687678/2672547",
+        "StateId": "2"
+    },
+    {
+        "Address": "Avenida Peñalver, Al lado del Hospital Rolins.",
+        "CityId": "1629",
+        "Description": "Farmacia Leocar (24 horas)",
+        "Id": "30",
+        "Latitude": "",
+        "Longitude": "",
+        "PartnerId": "5",
+        "PhoneNumber": "0281-441.04.71",
+        "StateId": "2"
     }
 ]

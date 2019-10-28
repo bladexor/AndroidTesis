@@ -1,26 +1,32 @@
 [
     {
-        "Id": 1,
+        "Id": "1",
         "Logo": "~/images/partners/farmatodo_logo.jpeg",
         "Name": "Farmatodo Venezuela",
         "Website": "https://www.farmatodo.com.ve/"
     },
     {
-        "Id": 2,
+        "Id": "2",
         "Logo": "~/images/partners/locatel_logo.jpeg",
         "Name": "Locatel Venezuela",
         "Website": "https://www.locatel.com.ve/"
     },
     {
-        "Id": 3,
+        "Id": "3",
         "Logo": "~/images/partners/fundafarmacia_logo.jpg",
         "Name": "FundaFarmacia",
         "Website": "http://www.fundafarmacia.com/"
     },
     {
-        "Id": 4,
+        "Id": "4",
         "Logo": "~/images/partners/farmaciasaas_logo.png",
         "Name": "Farmacias SAAS",
         "Website": "http://www.farmaciasaas.com/"
+    },
+    {
+        "Id": "5",
+        "Logo": "~/images/partners/farmahorro_logo.jpg",
+        "Name": "Farmahorro",
+        "Website": "http://www.farmahorro.com.ve/"
     }
 ]
