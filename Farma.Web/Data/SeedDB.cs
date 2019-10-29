@@ -41,35 +41,55 @@ namespace Farma.Web.Data
 
             await this.context.Database.EnsureCreatedAsync();
 
-            //var productos = new List<string>{
-            //    "atamel","allegra",
-            //    "captopril","calcibon", "ciprofloxacina","cefadroxilo",
-            //    "diclofenac",
-            //    "ketoprofeno",
-            //    "omeprazol",
-            //    "prospan"
-            //};
+            var productos = new List<string>{
+                "atamel","allegra",
+                "captopril","calcibon", "ciprofloxacina","cefadroxilo",
+                "diclofenac",
+                "ketoprofeno",
+                "omeprazol",
+                "prospan"
+            };
 
-            //var helperF=new FarmatodoHelper();
+            var helperF=new FarmatodoHelper();
 
-            //foreach (var item in productos)
-            //{
-            //    var resultado = await helperF.BuscarProducto(item);
+            foreach (var item in productos)
+            {
+                var resultado = await helperF.BuscarProducto(item);
 
-            //    foreach (var hit in resultado.hits)
-            //    {
-            //        this.context.Products.Add(new Product
-            //        {
-            //            Description = hit.description,
-            //            ImageUrl = hit.mediaImageUrl,
-            //            PartnerName = "Farmatodo"
-            //        });
-            //    }
-            //}
+                foreach (var hit in resultado.hits)
+                {
+                    this.context.Products.Add(new Product
+                    {
+                        Description = hit.description,
+                        ImageUrl = hit.mediaImageUrl,
+                        PartnerName = "Farmatodo"
+                    });
+                }
+           }
 
             //this.context.SaveChanges();
 
-      
+            var helperL=new LocatelHelper();
+
+            foreach (var item in productos)
+            {
+                var resultado = await helperL.FindProduct(item);
+
+                foreach (var p in resultado.Products)
+                {
+                    this.context.Products.Add(new Product
+                    {
+                        Description = p.Description,
+                        ImageUrl = "",
+                       PartnerName = "Locatel"
+                    });
+                }
+            }
+
+           var Availavilities= await helperL.GetAvailability("2018027");
+
+            this.context.SaveChanges();
+            
             var separator = Path.DirectorySeparatorChar;
             var dirSeedPath = "Data" + separator + "Seed" + separator;
            

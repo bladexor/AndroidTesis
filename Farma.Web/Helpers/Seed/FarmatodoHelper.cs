@@ -41,7 +41,8 @@ namespace Farma.Web.Helpers
                 var result = await response.Content.ReadAsStringAsync();
 
                 var list = JsonConvert.DeserializeObject<Farma.Web.Models.Helpers.Farmatodo.RootObject>(result);
-Console.WriteLine("FARMATODO " + list.hits.Count);
+
+                list.hits= list.hits.FindAll(z => z.color == "G");
                 return list;
 
             }
