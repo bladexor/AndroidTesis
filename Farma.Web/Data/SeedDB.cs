@@ -50,45 +50,45 @@ namespace Farma.Web.Data
                 "prospan"
             };
 
-            var helperF=new FarmatodoHelper();
+           // var helperF=new FarmatodoHelper();
 
-            foreach (var item in productos)
-            {
-                var resultado = await helperF.BuscarProducto(item);
+           // foreach (var item in productos)
+           // {
+           //     var resultado = await helperF.BuscarProducto(item);
 
-                foreach (var hit in resultado.hits)
-                {
-                    this.context.Products.Add(new Product
-                    {
-                        Description = hit.description,
-                        ImageUrl = hit.mediaImageUrl,
-                        PartnerName = "Farmatodo"
-                    });
-                }
-           }
+           //     foreach (var hit in resultado.hits)
+           //     {
+           //         this.context.Products.Add(new Product
+           //         {
+           //             Description = hit.description,
+           //             ImageUrl = hit.mediaImageUrl,
+           //             PartnerName = "Farmatodo"
+           //         });
+           //     }
+           //}
 
-            //this.context.SaveChanges();
+           // //this.context.SaveChanges();
 
-            var helperL=new LocatelHelper();
+           // var helperL=new LocatelHelper();
 
-            foreach (var item in productos)
-            {
-                var resultado = await helperL.FindProduct(item);
+           // foreach (var item in productos)
+           // {
+           //     var resultado = await helperL.FindProduct(item);
 
-                foreach (var p in resultado.Products)
-                {
-                    this.context.Products.Add(new Product
-                    {
-                        Description = p.Description,
-                        ImageUrl = "",
-                       PartnerName = "Locatel"
-                    });
-                }
-            }
+           //     foreach (var p in resultado.Products)
+           //     {
+           //         this.context.Products.Add(new Product
+           //         {
+           //             Description = p.Description,
+           //             ImageUrl = "",
+           //            PartnerName = "Locatel"
+           //         });
+           //     }
+           // }
 
-           var Availavilities= await helperL.GetAvailability("2018027");
+           //var Availavilities= await helperL.GetAvailability("2018027");
 
-            this.context.SaveChanges();
+           // this.context.SaveChanges();
             
             var separator = Path.DirectorySeparatorChar;
             var dirSeedPath = "Data" + separator + "Seed" + separator;
@@ -132,16 +132,19 @@ namespace Farma.Web.Data
 
             if (!Directory.Exists(dirDestiny))
             {
-
                 Directory.CreateDirectory(dirDestiny);
+            }
 
                 var images = Directory.EnumerateFiles(dirSource);
 
                 foreach (var filepath in images)
                 {
-                    File.Copy(filepath, dirDestiny + Path.GetFileName(filepath));
+                    var filedest = dirDestiny + Path.GetFileName(filepath);
+
+                    if (!File.Exists(filedest))
+                    { File.Copy(filepath, filedest); }
                 }
-            }
+            
             //-------------------------------------------------------------
 
             //Detalles de Partners
