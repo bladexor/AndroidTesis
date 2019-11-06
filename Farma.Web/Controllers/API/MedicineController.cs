@@ -21,7 +21,7 @@ namespace Farma.Web.Controllers.API
         [HttpGet("{s}")]
         public IActionResult GetSuggest(string s)
         {
-            return Ok(this.medicineRepository.GetByNameAsync(s));
+            return Ok(this.medicineRepository.FindRangeStartsWithAsync(s));
         }
 
     }

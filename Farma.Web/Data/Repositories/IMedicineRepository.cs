@@ -8,6 +8,8 @@ namespace Farma.Web.Data.Repositories
 {
     public interface IMedicineRepository : IGenericRepository<Medicine>
     {
-        IEnumerable<Medicine> GetByNameAsync(string name);
+        IEnumerable<Medicine> FindRangeStartsWithAsync(string name);
+        
+        Medicine GetByNameAsync(string name);
     }
 }

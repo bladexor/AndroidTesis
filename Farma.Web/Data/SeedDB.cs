@@ -182,7 +182,7 @@ namespace Farma.Web.Data
                 UserName = "bladi135@gmail.com",
                 PhoneNumber = "04261820882",
                 Address = "Calle 8, Boyaca 3, Barcelona, Edo. Anzoategui",
-                City = this.context.Cities.FirstOrDefault()
+                City = this.context.Cities.Find(1597),
             };
 
             addAUser(admin1, "123456", "Admin");
@@ -196,7 +196,7 @@ namespace Farma.Web.Data
                 UserName = "miguel@gmail.com",
                 PhoneNumber = "04166828016",
                 Address = "Boyaca 5, detras del Liceo ETA, Barcelona, Edo. Anzoategui",
-                City = this.context.Cities.FirstOrDefault()
+                City = this.context.Cities.Find(1597),
             };
 
             addAUser(admin2, "123456", "Admin");
@@ -210,7 +210,33 @@ namespace Farma.Web.Data
                 UserName = "yeni@gmail.com",
                 PhoneNumber = "04121907221",
                 Address = "Calle Sucre, Santa Fe, Edo.Sucre",
-                City = this.context.Cities.FirstOrDefault()
+                City = this.context.Cities.Find(925),
+                Donations =new List<Donation>
+                {
+                    new Donation{ MedicineId = 1},
+                    new Donation{ MedicineId = 3},
+                    new Donation{ MedicineId = 5},
+                    new Donation{ MedicineId = 100},
+                    new Donation{ MedicineId = 150},
+                    new Donation{ MedicineId = 200}
+                },
+                Exchanges = new List<Exchange>
+                {
+                    new Exchange{ MedicineId = 500 },
+                    new Exchange{ MedicineId = 400 },
+                    new Exchange{ MedicineId = 800 },
+                    new Exchange{ MedicineId = 900 },
+                    new Exchange{ MedicineId = 1000 }
+                },
+                WantedMedicines = new List<WantedMedicine>
+                {
+                    new WantedMedicine{ MedicineId = 3000 },
+                    new WantedMedicine{ MedicineId = 4000 },
+                    new WantedMedicine{ MedicineId = 5000 },
+                    new WantedMedicine{ MedicineId = 6000 },
+                    new WantedMedicine{ MedicineId = 7001 },
+                }
+              
             };
 
             addAUser(customer1, "123456", "Customer");
@@ -223,7 +249,33 @@ namespace Farma.Web.Data
                 UserName = "leila@gmail.com",
                 PhoneNumber = "04248265399",
                 Address = "Calle 8, Boyaca 3, Barcelona, Anzoategui",
-                City = this.context.Cities.FirstOrDefault()
+                City = this.context.Cities.Find(1597),
+                Donations =new List<Donation>
+                {
+                    new Donation{ MedicineId = 22},
+                    new Donation{ MedicineId = 24},
+                    new Donation{ MedicineId = 26},
+                    new Donation{ MedicineId = 1000},
+                    new Donation{ MedicineId = 1500},
+                    new Donation{ MedicineId = 2000}
+                },
+                Exchanges = new List<Exchange>
+                {
+                    new Exchange{ MedicineId = 1500 },
+                    new Exchange{ MedicineId = 1400 },
+                    new Exchange{ MedicineId = 1800 },
+                    new Exchange{ MedicineId = 1900 },
+                    new Exchange{ MedicineId = 2000 }
+                },
+                WantedMedicines = new List<WantedMedicine>
+                {
+                    new WantedMedicine{ MedicineId = 6500 },
+                    new WantedMedicine{ MedicineId = 555 },
+                    new WantedMedicine{ MedicineId = 888 },
+                    new WantedMedicine{ MedicineId = 666 },
+                    new WantedMedicine{ MedicineId = 856 },
+                }
+                
             };
 
             addAUser(customer2, "123456", "Customer");

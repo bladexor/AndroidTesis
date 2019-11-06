@@ -9,5 +9,6 @@ namespace Farma.Web.Data.Repositories
     public interface IExchangeRepository:IGenericRepository<Exchange>
     {
         IEnumerable<Exchange> GetOffersByUserId(string uid);
+        IEnumerable<Exchange> GetOffersByMedicineId(int medicineId);
     }
 }

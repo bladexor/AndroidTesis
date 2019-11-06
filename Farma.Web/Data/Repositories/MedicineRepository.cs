@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Farma.Web.Data.Repositories
@@ -15,14 +16,21 @@ namespace Farma.Web.Data.Repositories
             this.context = context;
         }
 
-        public IEnumerable<Medicine> GetByNameAsync(string name)
+        public IEnumerable<Medicine> FindRangeStartsWithAsync(string name)
         {
             return this.context.Medicines
                                .Where(c => c.Name.StartsWith(name,StringComparison.CurrentCultureIgnoreCase))
                                .OrderBy(c => c.Name)
                                .Take(10).ToList();
-                          ///   .Take(5).<Medicine>;
-                       
+
+        }
+
+        public  Medicine GetByNameAsync(string name)
+        {
+            return context.Medicines
+                .Where(c => c.Name.Equals(name,StringComparison.CurrentCultureIgnoreCase))
+                .FirstOrDefault();
+           
         }
     }
 }
