@@ -99,24 +99,26 @@ namespace Farma.Web.Controllers.API
                 var fHelper=new FarmatodoHelper();
 
                 var resultado = await fHelper.BuscarProducto(f);
-                
-                foreach (var hit in resultado.hits)
+                if (resultado!=null)
                 {
-                         search_results.Add(new SearchResult
-                         {
-                             type = "P",
-                             id=hit.id,
-                             medicine_name = hit.description,
-                             details = hit.detailDescription,
-                             //user_creator = e.UserId,
-                             name_surname = "Farmatodo",
-                             urlimage = hit.mediaImageUrl
+                    foreach (var hit in resultado.hits)
+                    {
+                        search_results.Add(new SearchResult
+                        {
+                            type = "P",
+                            id = hit.id,
+                            medicine_name = hit.description,
+                            details = hit.detailDescription,
+                            //user_creator = e.UserId,
+                            name_surname = "Farmatodo",
+                            urlimage = hit.mediaImageUrl
                             // city=userCity.Name,
                             // state = userState.Name,
                             // phone=user.PhoneNumber,
-                         });
+                        });
+                    }
                 }
-            //}
+                //}
         
 
             return Ok(search_results);
