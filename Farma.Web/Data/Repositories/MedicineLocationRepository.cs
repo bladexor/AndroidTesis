@@ -25,5 +25,15 @@ namespace Farma.Web.Data.Repositories
 
             return d;
         }
+        
+        public IEnumerable<MedicineLocation> GetLocationsByMedicineId(int medicineId)
+        {
+            var o = this.context.MedicineLocations
+                .Include(m => m.Medicine)
+                .Where(x => x.MedicineId == medicineId);
+
+            return o;
+            
+        }
     }
 }

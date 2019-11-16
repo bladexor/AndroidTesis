@@ -13,6 +13,7 @@ namespace Farma.Web.Controllers.API
     {
         private readonly IDonationRepository donationRepository;
         private readonly IExchangeRepository exchangeRepository;
+        private readonly IMedicineLocationRepository medicineLocationRepository;
         private readonly IUserHelper userHelper;
         private readonly IStateRepository stateRepository;
         private readonly ICityRepository cityRepository;
@@ -20,6 +21,7 @@ namespace Farma.Web.Controllers.API
 
         public SearchController(IDonationRepository donationRepository,
             IExchangeRepository exchangeRepository,
+            IMedicineLocationRepository medicineLocationRepository,
             IUserHelper userHelper,
             IStateRepository stateRepository,
             ICityRepository cityRepository,
@@ -27,6 +29,7 @@ namespace Farma.Web.Controllers.API
         {
             this.donationRepository = donationRepository;
             this.exchangeRepository = exchangeRepository;
+            this.medicineLocationRepository = medicineLocationRepository;
             this.userHelper = userHelper;
             this.stateRepository = stateRepository;
             this.cityRepository = cityRepository;
@@ -47,9 +50,8 @@ namespace Farma.Web.Controllers.API
             {
                 var donations = donationRepository.GetDonationsByMedicineId(medicine.Id);
                 var exchanges = exchangeRepository.GetOffersByMedicineId(medicine.Id);
-                //TODO: find locations by medicine
-
-
+                var locations = medicineLocationRepository.GetLocationsByMedicineId(medicine.Id);
+               
                 foreach (var d in donations)
                 {
                     var user=userHelper.GetUserByIdAsync(d.UserId).Result;
@@ -92,11 +94,32 @@ namespace Farma.Web.Controllers.API
                         urlimage = "/images/medicine_icon.jpg"
                     });
                 }
+                
+                foreach (var l in locations)
+                {
+                    var user=userHelper.GetUserByIdAsync(l.UserId).Result;
+                    var userCity = cityRepository.GetByIdAsync(user.CityId).Result;
+                    var userState = stateRepository.GetByIdAsync(userCity.StateId).Result;
+                    
+                    search_results.Add(new SearchResult
+                    {
+                        type = "L",
+                        id=l.Id,
+                        medicine_name = l.Medicine.Name,
+                        details = l.MedicineDetails,
+                        user_creator = l. UserId,
+                        name_surname = user.FullName,
+                        city=userCity.Name,
+                        state = userState.Name,
+                        phone=l.PlacePhone,
+                        urlimage = "/images/medicine_icon.jpg"
+                    });
+                }
             }
             
             //if(search_results.Count==0)
             //{
-                var fHelper=new FarmatodoHelper();
+                /*var fHelper=new FarmatodoHelper();
 
                 var resultado = await fHelper.BuscarProducto(f);
                 if (resultado!=null)
@@ -117,7 +140,7 @@ namespace Farma.Web.Controllers.API
                             // phone=user.PhoneNumber,
                         });
                     }
-                }
+                }*/
                 //}
         
 

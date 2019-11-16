@@ -9,5 +9,7 @@ namespace Farma.Web.Data.Repositories
     public interface IMedicineLocationRepository:IGenericRepository<MedicineLocation>
     {
         IEnumerable<MedicineLocation> GetLocationsByUserId(string uid);
+        
+        IEnumerable<MedicineLocation> GetLocationsByMedicineId(int medicineId);
     }
 }
