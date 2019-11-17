@@ -1,0 +1,92 @@
+[
+    {
+        "Address": "AV MIRANDA No 2-64 PLANTA BAJA",
+        "CityId": "1593",
+        "Description": "Farmatodo Anaco - KAVAC",
+        "Id": "15",
+        "Latitude": "9.4316",
+        "Longitude": "-64.48",
+        "PhoneNumber": "0800-327628636",
+        "StateId": "2"
+    },
+    {
+        "Address": "AV JOSE ANTONIO ANZOATEGUI AL LADO DE MCDONALDS Y FRENTE AL UNICASA",
+        "CityId": "1593",
+        "Description": "Farmatodo ANACO- AV. JOSÉ A. ANZOÁTEGUI - CORAL",
+        "Id": "16",
+        "Latitude": "9.433",
+        "Longitude": "-64.4659",
+        "PhoneNumber": "0282-4256091",
+        "StateId": "2"
+    },
+    {
+        "Address": "AV INTERCOMUNAL EL TIGRE CC EL ROBLE LOCALES 1 Y2 SAN JOSE DE GUANIPA",
+        "CityId": "1572",
+        "Description": "Farmatodo EL TIGRE - AVENIDA INTERCOMUNAL",
+        "Id": "17",
+        "Latitude": "8.8956",
+        "Longitude": "-64.1961",
+        "PhoneNumber": "0800-327628636",
+        "StateId": "2"
+    },
+    {
+        "Address": "AV WINSTON CHURCHILL CON CALLE 16 SUR URB FRANCISCO DE MIRANDA",
+        "CityId": "1572",
+        "Description": "Farmatodo EL TIGRE - AV. WINSTON CHURCHILL",
+        "Id": "18",
+        "Latitude": "8.8928",
+        "Longitude": "-64.2398",
+        "PhoneNumber": "",
+        "StateId": "2"
+    },
+    {
+        "Address": "CALLE MARINO CON AV LIC. URBANEJA EL PENONAL.",
+        "CityId": "1577",
+        "Description": "Farmatodo LECHERIAS",
+        "Id": "19",
+        "Latitude": "10.1783",
+        "Longitude": "-64.6891",
+        "PhoneNumber": "0281-2860323",
+        "StateId": "2"
+    },
+    {
+        "Address": "AV DIEGO BAUTISTA URBANEJA CON CARRERA 6 ",
+        "CityId": "1577",
+        "Description": "Farmatodo AV. PRINCIPAL DE LECHERÍAS",
+        "Id": "20",
+        "Latitude": "10.1989",
+        "Longitude": "-64.6929",
+        "PhoneNumber": "0281-2818077",
+        "StateId": "2"
+    },
+    {
+        "Address": "PASEO COLON No 17 ",
+        "CityId": "1628",
+        "Description": "Farmatodo PUERTO LA CRUZ - PASEO COLON",
+        "Id": "21",
+        "Latitude": "10.225",
+        "Longitude": "-64.6345",
+        "PhoneNumber": "0281-2656364",
+        "StateId": "2"
+    },
+    {
+        "Address": "CALLE LA LIBERTAD. LOCAL49-A ",
+        "CityId": "1628",
+        "Description": "Farmatodo PUERTO LA CRUZ - CALLE LA LIBERTAD",
+        "Id": "22",
+        "Latitude": "10.2218",
+        "Longitude": "-64.6358",
+        "PhoneNumber": "0281-2698090 ",
+        "StateId": "2"
+    },
+    {
+        "Address": "PUERTO LA CRUZ",
+        "CityId": "1628",
+        "Description": "Farmatodo PUERTO LA CRUZ",
+        "Id": "23",
+        "Latitude": "10.206",
+        "Longitude": "-64.6515",
+        "PhoneNumber": "0800-327628636",
+        "StateId": "2"
+    }
+]
